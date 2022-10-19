@@ -20,6 +20,7 @@ export function photographerArticle(data) {
     const img = document.createElement( 'img' );
     img.src = `assets/photographers/${portrait}`;
     img.className = 'photographer-article__picture';
+    a.alt = name;
 
     // title
     const h2 = document.createElement('h2');
@@ -43,12 +44,15 @@ export function photographerArticle(data) {
     priceSpan.classList.add("photographer-article__price");
     
     /*===== Append all element to link then to article =====*/
+    // apend to link
     a.appendChild(img);
     a.appendChild(h2);
-    a.appendChild(locationHeading);
-    a.appendChild(taglineSpan);
-    a.appendChild(priceSpan);
+
+    // append to the article
     article.appendChild(a);
+    article.appendChild(locationHeading);
+    article.appendChild(taglineSpan);
+    article.appendChild(priceSpan);
     
     return (article);
 }
