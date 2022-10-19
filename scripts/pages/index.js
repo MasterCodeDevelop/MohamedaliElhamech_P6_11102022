@@ -1,3 +1,4 @@
+    import { photographerFactory } from '../factories/photographer.js';
     async function getPhotographers() {
         // Penser à remplacer par les données récupérées dans le json
         const photographers = [
