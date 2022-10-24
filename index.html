@@ -1,21 +1,47 @@
 <!DOCTYPE html>
 <html lang="fr">
-  <head>
-    <meta charset="utf-8">
-    <link rel="icon" type="image/png" href="assets/icons/icon.png"/>
-    <link href="css/style.css" rel="stylesheet" type="text/css" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fisheye</title>
-  </head>
-  <body>
-    <header>
-        <img src="assets/images/logo.png" alt="Fisheye Logo" class="logo" >
-        <h1 tabindex="0">Nos photographes</h1>
-    </header>
-    <main id="main">
-        <div class="photographer_section"></div>
-    </main>
-    <script src="./scripts/pages/index.js" type="module"></script>
-  </body>
+
+<head>
+  <meta charset="utf-8">
+  <link rel="icon" type="image/png" href="assets/icons/icon.png" />
+  <link href="css/style.css" rel="stylesheet" type="text/css" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fisheye</title>
+</head>
+
+<body>
+
+  <!--=============== HEADER ===============-->
+  <header>
+    <img src="assets/images/logo.png" alt="Fisheye Logo" class="logo">
+    <h1 tabindex="0">Nos photographes</h1>
+  </header>
+
+  <!--=============== MAIN ===============-->
+  <main id="main">
+    <div class="photographer_section"></div>
+  </main>
+
+  <!--=============== TEMPLATES ===============-->
+  <template id="photographer-article">
+    <a>
+      <picture>
+        <source media="(max-width:750px)">
+        <source media="(max-width:1500px)">
+        <source media="(max-width:2000px)">
+        <img class="photographer-article__picture-img">
+      </picture>
+      <h2 class="photographer-article__name"></h2>
+    </a>
+    <h3 class="photographer-article__location"></h3>
+    <span class="photographer-article__tagline"></span>
+    <span class="photographer-article__price"></span>
+  </template>
+
+  <!--=============== SCRIPT ===============-->
+  <script src="./scripts/pages/index.js" type="module"></script>
+
+</body>
+
 </html>
