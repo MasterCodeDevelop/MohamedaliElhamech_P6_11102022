@@ -1,0 +1,38 @@
+/*====================== photographer ======================*/
+.photographer {
+    margin-inline: 100px;
+    &-header {
+        background-color: $clr-lightgrey;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 50px;
+        margin-block: 20px;
+        &__picture {
+            border-radius: 50%;
+            object-fit: cover;
+            height: 200px;
+            width: 200px;
+        }
+        &__profile, &__profile-details {
+            display: grid;
+            gap: 19px;
+        }
+        &__profile-name {
+            font-size: 3em;
+            font-weight: normal;
+            color: $clr-secondary;
+        }
+        &__profile-details-location {
+            color: $clr-primary;
+            font-size: 24px;
+        }
+        &__profile-details-tagline {
+            color: $clr-darkgrey;
+        }
+        
+    }
+}
+
+
+

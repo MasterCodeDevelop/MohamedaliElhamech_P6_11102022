@@ -1,0 +1,22 @@
+.btn {
+    font-size: 20px;
+    font-weight: bold;
+    color: $clr-white;
+    padding: 11px;
+    width: 170px;
+    height: 70px;
+    border: none;
+    background-color: $clr-primary;
+    border-radius: 5px;
+    cursor: pointer;
+
+    &:focus {
+        outline: 2px solid $clr-secondary;
+    }
+
+    &:hover {
+        background-color: $clr-secondary;
+        color: $clr-black;
+        outline: $clr-white;     
+    }   
+}
