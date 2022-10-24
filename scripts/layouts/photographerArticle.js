@@ -14,7 +14,7 @@ export function photographerArticle(data) {
     
     // link
     const a = document.createElement('a');
-    a.href = `./profile.html?id=${id}`;
+    a.href = `./photographer.html?id=${id}`;
 
     // image
     const img = document.createElement( 'img' );
