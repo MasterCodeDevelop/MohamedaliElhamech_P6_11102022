@@ -23,23 +23,17 @@ export function photographerArticle(data) {
     spans = article.querySelectorAll('span');
 
     /*========== UPDATE ARTICLE  ==========*/
-    /*## LINK ##*/
-    a.href = `./photographer.html?id=${id}`;
-    /*## PICTURE ##*/
+    a.href = `./photographer.html?id=${id}`;// -> LINK
+    h2.ariaLabel = name; h2.textContent = name;// -> TITLE/NAME
+    h3.textContent = city + ', ' + country; // -> LOCATION
+    spans[1].textContent = tagline; // -> TAGLINE
+    spans[1].textContent = price + "€/jour";// -> PRICE
+    // PICTURE:
     sources[0].srcset = imgLink+"s.jpg";
     sources[1].srcset = imgLink+"m.jpg";
     sources[2].srcset = imgLink+"l.jpg";
     img.src = imgLink+"xl.jpg";
     img.alt = name;
-    /*## TITLE ##*/
-    h2.ariaLabel = name;
-    h2.textContent = name;
-    /*## LOCATION ##*/
-    h3.textContent = name;
-    /*## TAGLINE ##*/
-    spans[1].textContent = tagline;
-    /*## PRICE ##*/
-    spans[1].textContent = price + "€/jour";
 
     return (article);
 }

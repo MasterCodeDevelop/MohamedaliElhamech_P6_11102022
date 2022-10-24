@@ -17,20 +17,9 @@
     </header>
     
     <!--=============== MAIN ===============-->
-    <main id="main" class="photographer">
-
+    <main id="photographer" class="photographer">
       <!--=============== PHOTOGRAPHER-HEADER ===============-->
-      <section id="photographer-header" class="photographer-header">
-        <div class="photographer-header__profile">
-          <h2 class="photographer-header__profile-name" tabindex="0">Mimi Keel</h2>
-          <div class="photographer-header__profile-details" tabindex="0">
-            <span class="photographer-header__profile-details-location" >London, UK</span>
-            <span class="photographer-header__profile-details-tagline" >Voir le beau dans le quotidien</span>
-          </div>
-        </div>
-        <button class="btn" id="contact-btn" aria-labelledby="contact-btn" tabindex="0">Contactez-moi</button>
-        <img class="photographer-header__picture" src="./assets/photographers/MimiKeel/m.jpg" alt="Mimi Keel">
-      </section>
+      <section id="photographer-header" class="photographer-header"></section>
     
       <!--=============== SELECT DROP DOWN ===============-->
       <div class="dropdown">
@@ -44,6 +33,20 @@
           </ul>
         </nav>
         </div>
+
+      <!--=============== TEMPLATES ===============-->
+      <!------- photographer-header ------->
+      <template id="photographer-header-template">
+        <div class="photographer-header__profile">
+          <h2 class="photographer-header__profile-name" tabindex="0"></h2>
+          <div class="photographer-header__profile-details" tabindex="0">
+            <span class="photographer-header__profile-details-location" ></span>
+            <span class="photographer-header__profile-details-tagline" ></span>
+          </div>
+        </div>
+        <button class="btn" id="contact-btn" aria-labelledby="contact-btn" tabindex="0">Contactez-moi</button>
+        <img class="photographer-header__picture">
+      </template>
     </main>
 
     <!--=============== SCRIPT ===============-->

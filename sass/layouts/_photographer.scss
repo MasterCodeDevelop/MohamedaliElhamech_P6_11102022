@@ -30,9 +30,19 @@
         &__profile-details-tagline {
             color: $clr-darkgrey;
         }
-        
     }
 }
-
+@media screen and (max-width: 1080px) {
+    .photographer-header {
+        flex-direction: column;
+        gap: 2rem;
+        span {
+            text-align: center;
+        }
+        .btn, &__profile {
+            order: 1;
+        }
+    }
+}
 
 
