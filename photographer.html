@@ -32,6 +32,18 @@
         <img class="photographer-header__picture" src="./assets/photographers/MimiKeel/m.jpg" alt="Mimi Keel">
       </section>
     
+      <!--=============== SELECT DROP DOWN ===============-->
+      <div class="dropdown">
+        <label id="listbox-label" class="select-label" for="select">Trier par</label> 
+        <nav id="select" class="select" role="button" aria-haspopup="listbox" tabindex="0" aria-expanded="false"> 
+          <span id="current-option" class="current-option">Popularité</span>
+          <ul role="listbox" id="optgroup" class="optgroup" tabindex="-1" aria-labelledby="listbox-label" aria-activedescendant="listbox-popularity"> 
+            <li class="option" role="option" data-sort="popularity" tabindex="-1" id="listbox-popularity" aria-selected="true">Popularité</li> 
+            <li class="option" role="option" data-sort="date" tabindex="-1" id="listbox-date" aria-selected="false">Date</li>
+            <li class="option" role="option" data-sort="title" tabindex="-1" id="listbox-title" aria-selected="false">Titre</li>
+          </ul>
+        </nav>
+        </div>
     </main>
 
     <!--=============== SCRIPT ===============-->
