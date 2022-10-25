@@ -30,3 +30,26 @@ export function getPhotographerId() {
  export async function getProfile(photographerId) {
     return jsonData.photographers.find(photographer => photographer.id === photographerId);
 }
+/**
+ * Get to clone the template present with ID in the HTML page
+ * @param {string} ID 
+ * @returns {DocumentFragment}
+ */
+export function getCloneTemplate(ID) {
+    return document.getElementById(ID).content.cloneNode(true).firstElementChild;
+}
+/**
+ * Get last photographer's galery from the session storage. 
+ * If not exists set them in local storage.
+ * @param {number} photographerId 
+ * @returns {promise} array of objects (photographer's media) in data/photographers.json
+ */
+export async function getGalery(photographerId) {
+    let sessionGalery = JSON.parse(sessionStorage.getItem(photographerId));
+
+    if (!sessionGalery) {
+        const sessionGalery = jsonData.media.filter(e => e.photographerId === photographerId);
+        sessionStorage.setItem(photographerId, JSON.stringify(sessionGalery));
+    }
+    return sessionGalery;
+};

@@ -141,13 +141,17 @@ a:focus {
   width: 24.3vw;
   height: 24.3vw;
 }
-.card-img, .card-video {
+.card-header {
   width: 100%;
   height: 20.83vw;
+}
+.card-header img, .card-header video {
+  width: 100%;
+  height: 100%;
   border-radius: 5px;
   object-fit: cover;
 }
-.card-video::-webkit-media-controls {
+.card-header video::-webkit-media-controls {
   display: none;
 }
 .card-details {

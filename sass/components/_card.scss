@@ -3,14 +3,18 @@
     display: grid;
     width: 24.3vw;
     height: 24.3vw;
-    &-img, &-video {
+    &-header {
         width: 100%;
         height: 20.83vw;
-        border-radius: 5px;
-        object-fit: cover;
-    }
-    &-video::-webkit-media-controls {
-        display: none;
+        & img, & video {
+            width: 100%;
+            height: 100%;
+            border-radius: 5px;
+            object-fit: cover;
+        }
+        & video::-webkit-media-controls {
+            display: none;
+        }
     }
     &-details {
         height: 3.47vw;
@@ -23,5 +27,4 @@
     &-detail__title {
         font-weight: 400;
     }
-    
 }
