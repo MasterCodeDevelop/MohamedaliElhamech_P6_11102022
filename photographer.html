@@ -1,55 +1,181 @@
 <!DOCTYPE html>
 <html lang="fr">
-  <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/png" href="assets/icons/icon.png"/>
-    <link href="css/style.css" rel="stylesheet" type="text/css" />
-    <title>Fisheye - photographe</title>
-  </head>
-  <body>
-    <!--=============== HEADER ===============-->
-    <header>
-      <a href="index.html" tabindex="0">
-        <img src="assets/images/logo.png" class="logo"  alt="Fisheye Home page" />
-      </a>
-    </header>
-    
-    <!--=============== MAIN ===============-->
-    <main id="photographer" class="photographer">
-      <!--=============== PHOTOGRAPHER-HEADER ===============-->
-      <section id="photographer-header" class="photographer-header"></section>
-    
-      <!--=============== SELECT DROP DOWN ===============-->
-      <div class="dropdown">
-        <label id="listbox-label" class="select-label" for="select">Trier par</label> 
-        <nav  id="select" class="select" role="button" aria-haspopup="listbox" tabindex="0" aria-expanded="false" aria-hidden=true> 
-          <span id="current-option" class="current-option">Popularité</span>
-          <ul role="listbox" id="optgroup" class="optgroup" tabindex="-1" aria-labelledby="listbox-label" aria-activedescendant="listbox-popularity"> 
-            <li class="option" role="option" data-sort="popularity" tabindex="-1" id="listbox-popularity" aria-selected="true">Popularité</li> 
-            <li class="option" role="option" data-sort="date" tabindex="-1" id="listbox-date" aria-selected="false">Date</li>
-            <li class="option" role="option" data-sort="title" tabindex="-1" id="listbox-title" aria-selected="false">Titre</li>
-          </ul>
-        </nav>
-        </div>
 
-      <!--=============== TEMPLATES ===============-->
-      <!------- photographer-header ------->
-      <template id="photographer-header-template">
-        <div class="photographer-header__profile">
-          <h2 class="photographer-header__profile-name" tabindex="0"></h2>
-          <div class="photographer-header__profile-details" tabindex="0">
-            <span class="photographer-header__profile-details-location" ></span>
-            <span class="photographer-header__profile-details-tagline" ></span>
-          </div>
-        </div>
-        <button class="btn" id="contact-btn" aria-labelledby="contact-btn" tabindex="0">Contactez-moi</button>
-        <img class="photographer-header__picture">
-      </template>
-    </main>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="assets/icons/icon.png" />
+  <link href="css/style.css" rel="stylesheet" type="text/css" />
+  <title>Fisheye - photographe</title>
+</head>
 
-    <!--=============== SCRIPT ===============-->
-    <script src="./scripts/pages/photographer.js" type="module" ></script>
-  </body>
+<body>
+  <!--=============== HEADER ===============-->
+  <header>
+    <a href="index.html" tabindex="0">
+      <img src="assets/images/logo.png" class="logo" alt="Fisheye Home page" />
+    </a>
+  </header>
+
+  <!--=============== MAIN ===============-->
+  <main id="photographer" class="photographer">
+    <!--=============== PHOTOGRAPHER-HEADER ===============-->
+    <section id="photographer-header" class="photographer-header"></section>
+
+    <!--=============== SELECT DROP DOWN ===============-->
+    <div class="dropdown">
+      <label id="listbox-label" class="select-label" for="select">Trier par</label>
+      <nav id="select" class="select" role="button" aria-haspopup="listbox" tabindex="0" aria-expanded="false"
+        aria-hidden=true>
+        <span id="current-option" class="current-option">Popularité</span>
+        <ul role="listbox" id="optgroup" class="optgroup" tabindex="-1" aria-labelledby="listbox-label"
+          aria-activedescendant="listbox-popularity">
+          <li class="option" role="option" data-sort="popularity" tabindex="-1" id="listbox-popularity"
+            aria-selected="true">Popularité</li>
+          <li class="option" role="option" data-sort="date" tabindex="-1" id="listbox-date" aria-selected="false">Date
+          </li>
+          <li class="option" role="option" data-sort="title" tabindex="-1" id="listbox-title" aria-selected="false">
+            Titre</li>
+        </ul>
+      </nav>
+    </div>
+
+    <!--=============== PHOTOGRAPHER-HEADER ===============-->
+    <section id="galery-section"class="galery-section">
+      <article class="card" >
+        <img class="card-img" src="./assets/photos/195/Architecture_Corner_Room.jpg" alt="" srcset="">
+        <div class="card-details">
+          <h5 class="card-details__title">TITLE</h5>
+          <p class="card-details__likes">
+            <span>145</span>
+            <span>♥</span>
+          </p>
+        </div>
+      </article>
+      <article class="card" >
+        <video class="card-video" controls="" src="./assets/photos/243/Animals_Wild_Horses_in_the_mountains.mp4" id="lightbox_modal_media" data-mediaid="5234343" aria-label="image closeup view" tabindex="0"></video>
+        <div class="card-details">
+          <h5 class="card-details__title">TITLE</h5>
+          <p class="card-details__likes">
+            <span>145</span>
+            <span>♥</span>
+          </p>
+        </div>
+      </article>
+      <article class="card" >
+        <img class="card-img" src="./assets/photos/195/Architecture_Corner_Room.jpg" alt="" srcset="">
+        <div class="card-details">
+          <h5 class="card-details__title">TITLE</h5>
+          <p class="card-details__likes">
+            <span>145</span>
+            <span>♥</span>
+          </p>
+        </div>
+      </article>
+      <article class="card" >
+        <video class="card-video" controls="" src="./assets/photos/243/Animals_Wild_Horses_in_the_mountains.mp4" id="lightbox_modal_media" data-mediaid="5234343" aria-label="image closeup view" tabindex="0"></video>
+        <div class="card-details">
+          <h5 class="card-details__title">TITLE</h5>
+          <p class="card-details__likes">
+            <span>145</span>
+            <span>♥</span>
+          </p>
+        </div>
+      </article>
+      <article class="card" >
+        <img class="card-img" src="./assets/photos/195/Architecture_Corner_Room.jpg" alt="" srcset="">
+        <div class="card-details">
+          <h5 class="card-details__title">TITLE</h5>
+          <p class="card-details__likes">
+            <span>145</span>
+            <span>♥</span>
+          </p>
+        </div>
+      </article>
+      <article class="card" >
+        <video class="card-video" controls="" src="./assets/photos/243/Animals_Wild_Horses_in_the_mountains.mp4" id="lightbox_modal_media" data-mediaid="5234343" aria-label="image closeup view" tabindex="0"></video>
+        <div class="card-details">
+          <h5 class="card-details__title">TITLE</h5>
+          <p class="card-details__likes">
+            <span>145</span>
+            <span>♥</span>
+          </p>
+        </div>
+      </article>
+      <article class="card" >
+        <img class="card-img" src="./assets/photos/195/Architecture_Corner_Room.jpg" alt="" srcset="">
+        <div class="card-details">
+          <h5 class="card-details__title">TITLE</h5>
+          <p class="card-details__likes">
+            <span>145</span>
+            <span>♥</span>
+          </p>
+        </div>
+      </article>
+      <article class="card" >
+        <video class="card-video" controls="" src="./assets/photos/243/Animals_Wild_Horses_in_the_mountains.mp4" id="lightbox_modal_media" data-mediaid="5234343" aria-label="image closeup view" tabindex="0"></video>
+        <div class="card-details">
+          <h5 class="card-details__title">TITLE</h5>
+          <p class="card-details__likes">
+            <span>145</span>
+            <span>♥</span>
+          </p>
+        </div>
+      </article>
+      <article class="card" >
+        <img class="card-img" src="./assets/photos/195/Architecture_Corner_Room.jpg" alt="" srcset="">
+        <div class="card-details">
+          <h5 class="card-details__title">TITLE</h5>
+          <p class="card-details__likes">
+            <span>145</span>
+            <span>♥</span>
+          </p>
+        </div>
+      </article>
+      <article class="card" >
+        <video class="card-video" controls="" src="./assets/photos/243/Animals_Wild_Horses_in_the_mountains.mp4" id="lightbox_modal_media" data-mediaid="5234343" aria-label="image closeup view" tabindex="0"></video>
+        <div class="card-details">
+          <h5 class="card-details__title">TITLE</h5>
+          <p class="card-details__likes">
+            <span>145</span>
+            <span>♥</span>
+          </p>
+        </div>
+      </article>
+    </section>
+
+
+
+    <!--=============== TEMPLATES ===============-->
+
+    <!------- photographer-header ------->
+    <template id="photographer-header-template">
+      <div class="photographer-header__profile">
+        <h2 class="photographer-header__profile-name" tabindex="0"></h2>
+        <div class="photographer-header__profile-details" tabindex="0">
+          <span class="photographer-header__profile-details-location"></span>
+          <span class="photographer-header__profile-details-tagline"></span>
+        </div>
+      </div>
+      <button class="btn" id="contact-btn" aria-labelledby="contact-btn" tabindex="0">Contactez-moi</button>
+      <img class="photographer-header__picture">
+    </template>
+    <!------- galery ------->
+    <template id="galery-template">
+      <div class="card-details">
+        <h5 class="card-details__title">TITLE</h5>
+        <p class="card-details__likes">
+          <span>145</span>
+          <span>♥</span>
+        </p>
+      </div>
+    </template>
+
+  </main>
+
+  <!--=============== SCRIPT ===============-->
+  <script src="./scripts/pages/photographer.js" type="module"></script>
+</body>
+
 </html>

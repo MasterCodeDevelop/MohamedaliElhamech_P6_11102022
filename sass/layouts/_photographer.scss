@@ -1,6 +1,6 @@
 /*====================== photographer ======================*/
 .photographer {
-    margin-inline: 100px;
+    margin-inline: 6.94vw;
     &-header {
         background-color: $clr-lightgrey;
         display: flex;
@@ -44,5 +44,11 @@
         }
     }
 }
-
-
+/*====================== galery ======================*/
+.galery-section {
+    margin-block: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: 1.39vw;
+    justify-content: space-between;
+}
