@@ -1,21 +1,17 @@
+import { getCloneTemplate } from "../functions/get.js";
+
 /**
  * Create the photographer article
  * @param {Array} data 
  * @returns article element
  */
 export function photographerArticle(data) {
+
     /*========== CONST ==========*/
     const { id, name, portrait, city, country, tagline, price } = data,
-    templateArticle = document.getElementById('photographer-article').content.cloneNode(true),
-    article = document.createElement('article'),
-    imgLink =`./assets/photographers/${portrait}/`;
-
-    /*========== CLONE PHOTOGRAPHER CARD FROM TEMPLATE HTML  ==========*/
-    article.className = 'photographer-article'; 
-    article.append(templateArticle);
-
-    /*========== CONST OF ARTICLE  ==========*/
-    const a = article.querySelector('a'),
+    article = getCloneTemplate('photographer-article'),
+    imgLink =`./assets/photographers/${portrait}/`,
+    a = article.querySelector('a'),
     sources = article.querySelectorAll('source'),
     img = article.querySelector('img'),
     h2 = article.querySelector('h2'),
