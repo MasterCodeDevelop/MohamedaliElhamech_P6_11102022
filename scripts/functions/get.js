@@ -48,7 +48,7 @@ export async function getGalery(photographerId) {
     let sessionGalery = JSON.parse(sessionStorage.getItem(photographerId));
 
     if (!sessionGalery) {
-        const sessionGalery = jsonData.media.filter(e => e.photographerId === photographerId);
+        sessionGalery = jsonData.media.filter(e => e.photographerId === photographerId);
         sessionStorage.setItem(photographerId, JSON.stringify(sessionGalery));
     }
     return sessionGalery;

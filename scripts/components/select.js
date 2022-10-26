@@ -1,3 +1,5 @@
+import { updateGalery } from "./galery.js";
+
 /**########################### CONST ###########################**/
 const select = document.getElementById('select'),
 optgroup = document.getElementById('optgroup'),
@@ -38,43 +40,51 @@ function handleKeydown(e) {
 
     if (e.key === 'ArrowUp' || e.key ==='ArrowDown' || e.key === 'Home' || e.key === 'End') {
         selectedOption.ariaSelected = false;
+        
         if (e.key === 'ArrowUp') {
-            if (selectedOption.previousElementSibling != null) {
-                selectedOption = selectedOption.previousElementSibling;
-            } else {
-                selectedOption = selectedOption.parentNode.lastElementChild;
-            }
+            selectedOption = (selectedOption.previousElementSibling != null)
+            ?   selectedOption.previousElementSibling
+            :   selectedOption.parentNode.lastElementChild;
         } else if (e.key === 'ArrowDown') {
-            if ( selectedOption.nextElementSibling != null ) {
-                selectedOption = selectedOption.nextElementSibling;
-            } else {
-                selectedOption = selectedOption.parentNode.firstElementChild;
-            }
-        } else if (e.key === 'Home') {
-            selectedOption = selectedOption.parentNode.firstElementChild;
-        } else if (e.key === 'End') {
-            selectedOption = selectedOption.parentNode.lastElementChild;
+            selectedOption = ( selectedOption.nextElementSibling != null )
+            ?   selectedOption.nextElementSibling
+            :   selectedOption.parentNode.firstElementChild;
+        } else {
+            selectedOption = (e.key === 'Home')
+            ?   selectedOption.parentNode.firstElementChild
+            :   selectedOption.parentNode.lastElementChild;
         }
+
         selectedOption.ariaSelected = true;
         selectedOption.focus();
     }
-    if (e.key === 'Escape') {
-        closeSelect();
-    }
-    if (e.key === 'Enter') {
-        e.stopPropagation();
-        handleOption(selectedOption);
-    }
+    else if (e.key === 'Escape') closeSelect();
+    else if (e.key === 'Enter') handleOption(e);
+    
 }
-
+/**
+ * Update the current element for the select drop-down
+ * @param {element} option option selected in drop-down
+ */
+function updateCurrentOption(option) {
+    currentOption.setAttribute('data-value', option.value);
+    currentOption.textContent = option.innerText;
+}
 /**
  *  Updates the drop-down list and the gallery of photographers according to the option chosen, then closes the drop-down list.
  * @param {element} option element in a drop-down list
  */
-function handleOption(option) {
-    optgroup.insertBefore(option, optgroup.firstElementChild);
-    currentOption.textContent = option.innerText;
-    // * add function to update galery
+function handleOption(e) {
+    const option = e.target,
+    value = option.getAttribute("data-value");
+    e.stopPropagation();
+
+    if (value != currentOption.getAttribute("data-value")) {
+        optgroup.insertBefore(option, optgroup.firstElementChild);
+        updateCurrentOption(option);
+        updateGalery(value);
+    }
+
     closeSelect();
 }
 
@@ -96,10 +106,7 @@ export function updateSelect() {
         }
     });
     for (const option of optgroup.children) {
-        option.addEventListener('click', e => {
-            e.stopPropagation();
-            handleOption(option);
-        }); 
+        option.addEventListener('click', handleOption)
     }
 }
 

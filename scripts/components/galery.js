@@ -6,16 +6,14 @@ const photographerId = getPhotographerId(),
 photographerGalery = await getGalery(photographerId),
 section = document.getElementById('galery-section');
 
-
-
+/**########################### FUNCTION ###########################**/
 function setArticle(data) {
     /*========== CONST  ==========*/
-    const { title, image, video, date, photographerId, likes } = data;
-    const article = getCloneTemplate('galery-template');
+    const { title, image, video, date, photographerId, likes } = data,
+    article = getCloneTemplate('galery-template'),
+    header = article.querySelector('.card-header');
 
-    /*========== HEADER ==========*/
-    const header = article.querySelector('.card-header');
-    // IMG
+    /*========== IMAGE ==========*/
     if(image) {
         const img = document.createElement('img');
         img.className = 'card-img';
@@ -23,7 +21,7 @@ function setArticle(data) {
         img.alt = title;
         header.appendChild(img);
     }
-    // VIDEO
+    /*========== VIDEO ==========*/
     else if (video) {
         const newVideo = document.createElement('video');
         newVideo.className = 'card-video';
@@ -43,10 +41,27 @@ function setArticle(data) {
 }
 
 /**
- * Update the galery of one photographer
- * 
+ * Sorts the array by date (most recent to oldest), title (alphabetical), popularity (likes decending)
+ * @param {array} galery 
+ * @param {string} sortOption 
+ * @returns {array}
  */
- export async function updateGalery() {
-    
-    for (const data of photographerGalery) setArticle(data);
+ function sortGalery(galery, sortOption) {
+    const sorted = (sortOption=='date')?
+        galery.sort((a, b) => a.date.localeCompare(b.date)).reverse()
+    :(sortOption=='title')?
+        galery.sort((a, b) => a.title.localeCompare(b.title))
+    : galery.sort((a, b) => a.likes - b.likes).reverse();
+    return sorted;
+}
+
+/**########################### EXPORT ###########################**/
+/**
+ * Update the galery of one photographer
+ * @param {string} sortOption value current select
+ */
+ export async function updateGalery(sortOption) {
+    const sortedGalery = sortGalery(photographerGalery, sortOption);
+    section.innerHTML = '';// reset the section
+    for (const data of sortedGalery) setArticle(data);
 }
