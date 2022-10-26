@@ -1,5 +1,5 @@
 /*====================== modal ======================*/
-.modal {
+/*.modal {
     border-radius: 5px;
     background-color: #DB8876;
     width: 50%;
@@ -24,4 +24,72 @@
     font-size: 64px;
     font-weight: normal;
     text-align: center;
+}
+.modal-galery {
+
+}*/
+
+.modal {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    background-color: $clr-white;
+    width: 100vw;
+    height: 100vh;
+    padding: 0 15px 15px 15px;
+}
+
+.modal-galery {
+    &__arrow {
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0 1em;
+        font-size: 80px;
+        font-weight: 700;
+        color: $clr-primary;
+        cursor: pointer; 
+        &.left {
+            left: -40px;
+        }
+        &.right {
+            right: -40px;
+        }
+    }
+    &__figure {
+        display: flex;
+        flex-direction: column;
+        margin: 0 1%;
+        overflow: hidden;
+        animation-fill-mode: forwards;
+        animation-timing-function: ease;
+
+        object-fit: contain;
+        margin-bottom: 1em;
+        border-radius: 5px;
+        max-height: 60vh;
+        max-width: 80vw;
+    }
+    &__btn-close {
+        position: absolute;
+        top: 72px;
+        right: 126px;
+        width: 50px;
+        height: 50px;
+        background: transparent;
+        border: 0;
+        color: $clr-primary;
+        font-size: 42px;
+        line-height: 50px;
+        cursor: pointer;
+    }
+    &__title {
+        font-size: 24px;
+        color: $clr-primary;
+    }
 }

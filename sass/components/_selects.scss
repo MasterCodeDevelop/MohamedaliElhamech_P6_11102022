@@ -1,12 +1,9 @@
 
-*:focus {
+.select *:focus {
   outline: none;
   text-decoration: underline;
   text-shadow: 0 0 0.5px $clr-white;
 }
-a:focus {
-  outline: auto !important;
-} 
 .dropdown {
   position: relative;
   display: flex;

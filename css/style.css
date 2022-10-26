@@ -45,14 +45,10 @@ a {
   outline: #FFF;
 }
 
-*:focus {
+.select *:focus {
   outline: none;
   text-decoration: underline;
   text-shadow: 0 0 0.5px #FFF;
-}
-
-a:focus {
-  outline: auto !important;
 }
 
 .dropdown {
@@ -282,31 +278,95 @@ header {
 }
 
 /*====================== modal ======================*/
-.modal {
-  border-radius: 5px;
-  background-color: #DB8876;
-  width: 50%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  padding: 35px;
-  margin: auto;
+/*.modal {
+    border-radius: 5px;
+    background-color: #DB8876;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 35px;
+    margin: auto;
 }
 
 .modal header {
-  justify-content: space-between;
-  width: 100%;
+    justify-content: space-between;
+    width: 100%;
 }
 
 .modal header img {
-  cursor: pointer;
+    cursor: pointer;
 }
 
 .modal header h2 {
-  font-size: 64px;
-  font-weight: normal;
-  text-align: center;
+    font-size: 64px;
+    font-weight: normal;
+    text-align: center;
+}
+.modal-galery {
+
+}*/
+.modal {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  background-color: #FFF;
+  width: 100vw;
+  height: 100vh;
+  padding: 0 15px 15px 15px;
+}
+
+.modal-galery__arrow {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 1em;
+  font-size: 80px;
+  font-weight: 700;
+  color: #901C1C;
+  cursor: pointer;
+}
+.modal-galery__arrow.left {
+  left: -40px;
+}
+.modal-galery__arrow.right {
+  right: -40px;
+}
+.modal-galery__figure {
+  display: flex;
+  flex-direction: column;
+  margin: 0 1%;
+  overflow: hidden;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease;
+  object-fit: contain;
+  margin-bottom: 1em;
+  border-radius: 5px;
+  max-height: 60vh;
+  max-width: 80vw;
+}
+.modal-galery__btn-close {
+  position: absolute;
+  top: 72px;
+  right: 126px;
+  width: 50px;
+  height: 50px;
+  background: transparent;
+  border: 0;
+  color: #901C1C;
+  font-size: 42px;
+  line-height: 50px;
+  cursor: pointer;
+}
+.modal-galery__title {
+  font-size: 24px;
+  color: #901C1C;
 }
 
 /*====================== photographer ======================*/
