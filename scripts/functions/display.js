@@ -2,6 +2,7 @@
 
 // imports
 import { getUserCardDOM } from '../factories/photographer.js';
+import { getCloneTemplate } from './get.js';
 
 /**
  *  photographers articles in DOM (index.html)
@@ -22,12 +23,9 @@ export async function displayPhotographers(photographers) {
  export async function displayProfile(photographer) {
     /*========== CONST ==========*/
     const { name, location, tagline, portrait } = photographer,
-    templateSection = document.getElementById('photographer-header-template').content.cloneNode(true),
-    section = document.getElementById('photographer-header'),
+    main = document.getElementById('photographer'),
+    section = getCloneTemplate('photographer-header-template'),
     imgLink =`./assets/photographers/${portrait}/m.jpg`;
-
-    /*========== CLONE PHOTOGRAPHER CARD FROM TEMPLATE HTML  ==========*/
-    section.append(templateSection)
 
     /*========== CONST OF ARTICLE  ==========*/
     const h2 = section.querySelector('h2'),
@@ -39,4 +37,7 @@ export async function displayPhotographers(photographers) {
     details[0].textContent = location // -> LOCATION
     details[1].textContent = tagline //  -> TAGLINE
     img.src = imgLink; img.alt = name // -> IMAGE
+
+    /*========== ADD SECTION AS FIRST CHILD IN MAIN PAGE PHOTOGRAPHER ==========*/
+    main.insertBefore(section, main.firstChild)
 }

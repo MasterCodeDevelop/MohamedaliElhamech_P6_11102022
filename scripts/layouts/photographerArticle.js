@@ -16,14 +16,14 @@ export function photographerArticle(data) {
     img = article.querySelector('img'),
     h2 = article.querySelector('h2'),
     h3 = article.querySelector('h3'),
-    spans = article.querySelectorAll('span');
+    details = article.querySelectorAll('span');
 
     /*========== UPDATE ARTICLE  ==========*/
     a.href = `./photographer.html?id=${id}`;// -> LINK
     h2.ariaLabel = name; h2.textContent = name;// -> TITLE/NAME
     h3.textContent = city + ', ' + country; // -> LOCATION
-    spans[1].textContent = tagline; // -> TAGLINE
-    spans[1].textContent = price + "€/jour";// -> PRICE
+    details[1].textContent = tagline; // -> TAGLINE
+    details[1].textContent = price + "€/jour";// -> PRICE
     // PICTURE:
     sources[0].srcset = imgLink+"s.jpg";
     sources[1].srcset = imgLink+"m.jpg";

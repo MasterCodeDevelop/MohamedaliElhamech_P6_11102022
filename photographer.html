@@ -20,8 +20,7 @@
 
   <!--=============== MAIN ===============-->
   <main id="photographer" class="photographer">
-    <!--=============== PHOTOGRAPHER-HEADER ===============-->
-    <section id="photographer-header" class="photographer-header"></section>
+    <!--=============== ADD PHOTOGRAPHER-HEADER FROM JS ===============-->
 
     <!--=============== SELECT DROP DOWN ===============-->
     <div class="dropdown">
@@ -48,7 +47,7 @@
 
     <!------- photographer-header ------->
     <template id="photographer-header-template">
-      <article class="photographer-article">
+      <section class="photographer-header">
         <div class="photographer-header__profile">
           <h2 class="photographer-header__profile-name" tabindex="0"></h2>
           <div class="photographer-header__profile-details" tabindex="0">
@@ -58,7 +57,7 @@
         </div>
         <button class="btn" id="contact-btn" aria-labelledby="contact-btn" tabindex="0">Contactez-moi</button>
         <img class="photographer-header__picture">
-      </article>
+      </section>
     </template>
     <!------- galery ------->
     <template id="galery-template">
