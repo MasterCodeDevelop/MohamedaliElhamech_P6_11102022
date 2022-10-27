@@ -318,7 +318,7 @@ header {
   background-color: #FFF;
   width: 100vw;
   height: 100vh;
-  padding: 0 15px 15px 15px;
+  border: 0;
 }
 
 .modal-galery__arrow {
@@ -326,30 +326,32 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 0 1em;
   font-size: 80px;
   font-weight: 700;
   color: #901C1C;
   cursor: pointer;
 }
 .modal-galery__arrow.left {
-  left: -40px;
+  left: 0;
+  padding-left: 9vw;
 }
 .modal-galery__arrow.right {
-  right: -40px;
+  right: 0;
+  padding-right: 9vw;
 }
 .modal-galery__figure {
+  position: relative;
   display: flex;
   flex-direction: column;
   margin: 0 1%;
   overflow: hidden;
   animation-fill-mode: forwards;
   animation-timing-function: ease;
-  object-fit: contain;
-  margin-bottom: 1em;
-  border-radius: 5px;
-  max-height: 60vh;
-  max-width: 80vw;
+}
+.modal-galery__figure img, .modal-galery__figure video {
+  object-fit: cover;
+  width: 72.92vw;
+  height: 62.5vw;
 }
 .modal-galery__btn-close {
   position: absolute;

@@ -40,7 +40,7 @@
     background-color: $clr-white;
     width: 100vw;
     height: 100vh;
-    padding: 0 15px 15px 15px;
+    border: 0;
 }
 
 .modal-galery {
@@ -49,31 +49,33 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        padding: 0 1em;
         font-size: 80px;
         font-weight: 700;
         color: $clr-primary;
         cursor: pointer; 
         &.left {
-            left: -40px;
+            left: 0;
+            padding-left: 9vw;
         }
         &.right {
-            right: -40px;
+            right: 0;
+            padding-right: 9vw;
         }
     }
     &__figure {
+        position: relative;
         display: flex;
         flex-direction: column;
         margin: 0 1%;
         overflow: hidden;
         animation-fill-mode: forwards;
         animation-timing-function: ease;
-
-        object-fit: contain;
-        margin-bottom: 1em;
-        border-radius: 5px;
-        max-height: 60vh;
-        max-width: 80vw;
+   
+        img, video {
+            object-fit: cover;
+            width: 72.92vw;
+            height: 62.5vw;
+        }
     }
     &__btn-close {
         position: absolute;
