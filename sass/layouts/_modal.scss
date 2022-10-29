@@ -41,57 +41,71 @@
     width: 100vw;
     height: 100vh;
     border: 0;
+    &.is-open {
+        display: flex;
+    }
 }
 
 .modal-galery {
-    &__arrow {
-        position: absolute;
+    &__content {
         display: flex;
         justify-content: center;
         align-items: center;
-        font-size: 80px;
+        position: relative;
+    }
+    &__arrow {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: resSize(78);
+        width: resSize(30);
+        height: resSize(48);
         font-weight: 700;
         color: $clr-primary;
         cursor: pointer; 
-        &.left {
-            left: 0;
-            padding-left: 9vw;
-        }
-        &.right {
-            right: 0;
-            padding-right: 9vw;
-        }
+        padding-inline: resSize(35);
     }
     &__figure {
         position: relative;
         display: flex;
         flex-direction: column;
-        margin: 0 1%;
+        justify-content: center;
         overflow: hidden;
         animation-fill-mode: forwards;
         animation-timing-function: ease;
-   
+        width: resWidth(1050);
+        max-width: resHeight(1050);
+        height: resHeight(1024);
+        max-height: resWidth(1024);
+        padding-top: 5.9%;
         img, video {
-            object-fit: cover;
-            width: 72.92vw;
-            height: 62.5vw;
+            max-height: 83.55%;
+            border-radius: 5px;
+            object-fit: contain;
+            //object-fit: cover;
+            //object-position: 100% 36%;
+            
         }
     }
-    &__btn-close {
+    &__close-btn {
         position: absolute;
-        top: 72px;
-        right: 126px;
+        top: 0;
+        right: resWidth(7);
+        margin-top:  resWidth(77);;
         width: 50px;
         height: 50px;
         background: transparent;
         border: 0;
         color: $clr-primary;
-        font-size: 42px;
-        line-height: 50px;
+        width:  resSize(42);;
+        height:  resSize(42);;
+        font-size:  resSize(55);;
+        line-height: resSize(42);
         cursor: pointer;
     }
     &__title {
-        font-size: 24px;
+        font-size: resSize(24);
         color: $clr-primary;
+        max-height: 16.45%;
     }
 }

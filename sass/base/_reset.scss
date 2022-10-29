@@ -8,6 +8,10 @@ body {
     font-family: "DM Sans", sans-serif;
     margin: 0;
     background-color: $clr-white;
+    width: 100vw;
+    &.no-scroll, &.no-scroll main {
+        overflow: hidden;
+    }
 }
 a {
     display: inherit;

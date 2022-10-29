@@ -1,4 +1,4 @@
-//====================== variables ======================
+/*====================== variables ======================*/
 //####### Colors #######*
 $clr-primary: #901C1C;
 $clr-secondary: #D3573C;
@@ -6,3 +6,11 @@ $clr-darkgrey: #525252;
 $clr-lightgrey: #FAFAFA; 
 $clr-black: #000; 
 $clr-white: #FFF; 
+
+:root {
+    --res-width: calc(100vw/1440);
+    --res-height: calc(100vh/1024);
+}
+$res-height : var(--res-height);
+$res-width : var(--res-width);
+$ratio-size : var(--ratio-size);

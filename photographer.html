@@ -19,7 +19,7 @@
   </header>
 
   <!--=============== MAIN ===============-->
-  <main id="photographer" class="photographer">
+  <main id="photographer" class="photographer" aria-hidden="false">
     <!--=============== ADD PHOTOGRAPHER-HEADER FROM JS ===============-->
 
     <!--=============== SELECT DROP DOWN ===============-->
@@ -42,46 +42,48 @@
 
     <!--=============== PHOTOGRAPHER-HEADER ===============-->
     <section id="galery-section"class="galery-section"></section>
-    
-    <!--=============== MODAL-GALERY ===============-->
-    <dialog id="modal-galery" class="modal modal-galery" tabindex="0" aria-hidden="true" aria-label="image clloseup view">
-      <a href="#previou-image" class="modal-galery__arrow left" data-directioninput="previous image" tabindex="0">&lt;</a>
-      <figure class="modal-galery__figure" data-direction="next"></figure>
-      <a href="#next-image" class="modal-galery__arrow right" data-directioninput="next image" tabindex="0">&gt;</a>
-      <button class="modal-galery__btn-close" tabindex="0" data-directioninput="close dialog">✖</button>
-    </dialog>
-
-    <!--=============== TEMPLATES ===============-->
-
-    <!------- photographer-header ------->
-    <template id="photographer-header-template">
-      <section class="photographer-header">
-        <div class="photographer-header__profile">
-          <h2 class="photographer-header__profile-name" tabindex="0"></h2>
-          <div class="photographer-header__profile-details" tabindex="0">
-            <span class="photographer-header__profile-details-location"></span>
-            <span class="photographer-header__profile-details-tagline"></span>
-          </div>
-        </div>
-        <button class="btn" id="contact-btn" aria-labelledby="contact-btn" tabindex="0">Contactez-moi</button>
-        <img class="photographer-header__picture">
-      </section>
-    </template>
-    <!------- galery ------->
-    <template id="galery-template">
-      <article class="card" >
-        <div class="card-header"></div>
-        <div class="card-details">
-          <h5 class="card-details__title"></h5>
-          <p class="card-details__likes">
-            <span></span>
-            <span>♥</span>
-          </p>
-        </div>
-      </article>
-    </template>
 
   </main>
+
+  <!--=============== MODAL-GALERY ===============-->
+  <div id="modal-galery" class="modal modal-galery" tabindex="0" role="dialog" aria-hidden="true" aria-modal="true" aria-label="image closeup view" >
+    <div class="modal-galery__content">
+      <a href="#previou-image" class="modal-galery__arrow left" aria-label="previous image" tabindex="0">&lt;</a>
+      <figure class="modal-galery__figure"></figure>
+      <a href="#next-image" class="modal-galery__arrow right" aria-label="next image" tabindex="0">&gt;</a>
+      <button class="modal-galery__close-btn" tabindex="0" aria-label="close dialog" >✖</button>
+    </div>
+  </div>
+
+  <!--=============== TEMPLATES ===============-->
+
+  <!------- photographer-header ------->
+  <template id="photographer-header-template">
+    <section class="photographer-header">
+      <div class="photographer-header__profile">
+        <h2 class="photographer-header__profile-name" tabindex="0"></h2>
+        <div class="photographer-header__profile-details" tabindex="0">
+          <span class="photographer-header__profile-details-location"></span>
+          <span class="photographer-header__profile-details-tagline"></span>
+        </div>
+      </div>
+      <button class="btn" id="contact-btn" aria-labelledby="contact-btn" tabindex="0">Contactez-moi</button>
+      <img class="photographer-header__picture">
+    </section>
+  </template>
+  <!------- galery ------->
+  <template id="galery-template">
+    <article class="card" >
+      <div class="card-header"></div>
+      <div class="card-details">
+        <h5 class="card-details__title"></h5>
+        <p class="card-details__likes">
+          <span></span>
+          <span>♥</span>
+        </p>
+      </div>
+    </article>
+  </template>
 
   <!--=============== SCRIPT ===============-->
   <script src="./scripts/pages/photographer.js" type="module"></script>
