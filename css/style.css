@@ -337,6 +337,7 @@ header {
 
 }*/
 .modal {
+  position: relative;
   display: none;
   align-items: center;
   justify-content: center;
@@ -353,12 +354,6 @@ header {
   display: flex;
 }
 
-.modal-galery__content {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-}
 .modal-galery__arrow {
   display: flex;
   justify-content: center;
