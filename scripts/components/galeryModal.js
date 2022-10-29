@@ -103,7 +103,7 @@ function handleKeydown (e) {
     }/* Space */
   
     // control Tab
-    const a = ( keyCode === 9 && activeElement == btn ),
+    const a = ( !e.shiftKey && keyCode === 9 && activeElement == btn ),
     b = ((e.shiftKey && keyCode === 9) && activeElement == arrows[0]),
     c = (activeElement.parentElement != modal && activeElement.parentElement.parentElement != modal);
     if( a || b || c ) {

@@ -42,6 +42,10 @@ body {
 body.no-scroll, body.no-scroll main {
   overflow: hidden;
 }
+body *:focus {
+  animation: is-focus 2s infinite;
+  outline: 5px solid #901C1C;
+}
 
 a {
   display: inherit;
@@ -52,6 +56,26 @@ a {
   text-decoration: none;
 }
 
+@keyframes is-focus {
+  0% {
+    outline-color: #901c1c;
+  }
+  20% {
+    outline-color: rgba(144, 28, 28, 0.5);
+  }
+  40% {
+    outline-color: rgba(211, 87, 60, 0.5);
+  }
+  60% {
+    outline-color: #d3573c;
+  }
+  80% {
+    outline-color: rgba(144, 28, 28, 0.5);
+  }
+  100% {
+    outline-color: #901c1c;
+  }
+}
 /*|||||||||||||||||||||| COMPONENTS ||||||||||||||||||||||*/
 .btn {
   font-size: 20px;
