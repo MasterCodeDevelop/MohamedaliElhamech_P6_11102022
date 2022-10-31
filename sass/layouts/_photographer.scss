@@ -2,7 +2,7 @@
 .photographer {
     width: 100%;
     height: 100%;
-    padding-inline: 6.94vw;
+    padding-inline: resWidth(100);
     &-header {
         background-color: $clr-lightgrey;
         display: flex;
@@ -13,44 +13,32 @@
         &__picture {
             border-radius: 50%;
             object-fit: cover;
-            height: 200px;
-            width: 200px;
+            height: resWidth(200);
+            width: resWidth(200);
         }
         &__profile, &__profile-details {
             display: grid;
             gap: 19px;
         }
+        &__profile-name, &__profile-details-location, &__profile-details-tagline{
+            outline: 0;
+            transition: box-shadow .7s;
+            &:focus {
+                animation: text-focused 1s linear infinite;                
+            }
+        }
         &__profile-name {
-            font-size: 3em;
+            font-size: resSize(64);
             font-weight: normal;
             color: $clr-secondary;
         }
         &__profile-details-location {
             color: $clr-primary;
-            font-size: 24px;
+            font-size: resSize(24);
         }
         &__profile-details-tagline {
             color: $clr-darkgrey;
+            font-size: resSize(18);
         }
     }
-}
-@media screen and (max-width: 1080px) {
-    .photographer-header {
-        flex-direction: column;
-        gap: 2rem;
-        span {
-            text-align: center;
-        }
-        .btn, &__profile {
-            order: 1;
-        }
-    }
-}
-/*====================== galery ======================*/
-.galery-section {
-    margin-block: 20px;
-    display: flex;
-    flex-wrap: wrap;
-    row-gap: 1.39vw;
-    justify-content: space-between;
 }

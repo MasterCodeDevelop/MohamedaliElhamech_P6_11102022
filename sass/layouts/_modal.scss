@@ -79,16 +79,11 @@
             object-fit: contain;
             //object-fit: cover;
             //object-position: 100% 36%;
-            
         }
     }
     &__close-btn {
-        position: absolute;
-        top: 0;
-        right: resWidth(7);
-        margin-top:  resWidth(77);;
-        width: 50px;
-        height: 50px;
+        margin-bottom: resWidth(369);
+        margin-inline-start: -40px;
         background: transparent;
         border: 0;
         color: $clr-primary;
@@ -98,9 +93,33 @@
         line-height: resSize(42);
         cursor: pointer;
     }
+    img, video {
+        outline: 0;
+        transition: box-shadow .5s;  
+        &:focus, &:hover {
+            box-shadow: rgba($clr-primary, 0.4) 0px 0px 0px 3px, rgba($clr-primary, 0.65) 0px 6px 8px -2px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+        }
+    }
+    &__arrow, &__close-btn {
+        outline: 0;
+        transition: box-shadow .5s;  
+        &:focus, &:hover {
+            color: $clr-secondary;
+        }
+        &:focus {
+            box-shadow: rgba($clr-primary, 0.4) 0px 0px 0px 3px, rgba($clr-primary, 0.65) 0px 6px 8px -2px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+            animation: card-focused 1s linear infinite;                
+        }
+    }
     &__title {
         font-size: resSize(24);
         color: $clr-primary;
         max-height: 16.45%;
+        outline: 0;
+        transition: box-shadow .7s;
+        width: max-content;
+        &:focus {
+            animation: text-focused 1s linear infinite;                
+        }
     }
 }

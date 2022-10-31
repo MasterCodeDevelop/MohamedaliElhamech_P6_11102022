@@ -1,0 +1,11 @@
+//====================== mobile ======================//
+@media screen and ( max-width: 425px) {
+    :root {
+        --ratio-size: 2;
+        --ratio-width: 2;
+    }
+    .card {
+        width: calc(100vw - (resWidth(100) *2) );
+        height: calc(100vw - (resWidth(100) *2) );
+    }
+}

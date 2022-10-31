@@ -1,6 +1,6 @@
 //====================== functions ======================//
 @function resWidth($width) {
-    $newWidth: calc($res-width * $width);
+    $newWidth: calc($res-width * $width * $ratio-width);
     @return $newWidth;
 }
 @function resHeight($height) {

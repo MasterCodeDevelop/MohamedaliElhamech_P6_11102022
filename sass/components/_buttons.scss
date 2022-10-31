@@ -1,22 +1,20 @@
 .btn {
-    font-size: 20px;
-    font-weight: bold;
+    font-size: resSize(20);
+    font-weight: 700;
     color: $clr-white;
-    padding: 11px;
-    width: 170px;
-    height: 70px;
+    width: resWidth(11);
+    width: resWidth(170);
+    height: resWidth(70);
     border: none;
     background-color: $clr-primary;
     border-radius: 5px;
     cursor: pointer;
-
-    &:focus {
-        outline: 2px solid $clr-secondary;
+    outline: 0;
+    transition: box-shadow .5s;  
+    &:focus, &:hover {
+        box-shadow: rgba($clr-primary, 0.4) 0 1px, rgba($clr-secondary, 0.4) 0 5px;
     }
-
-    &:hover {
-        background-color: $clr-secondary;
-        color: $clr-black;
-        outline: $clr-white;     
-    }   
+    &:focus {   
+        animation: btn-focused 1s linear infinite;                
+    }  
 }

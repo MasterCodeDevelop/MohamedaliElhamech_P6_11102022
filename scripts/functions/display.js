@@ -22,19 +22,19 @@ export async function displayPhotographers(photographers) {
  */
  export async function displayProfile(photographer) {
     /*========== CONST ==========*/
-    const { name, location, tagline, portrait } = photographer,
+    const { name, country, city, tagline, portrait } = photographer,
     main = document.getElementById('photographer'),
     section = getCloneTemplate('photographer-header-template'),
-    imgLink =`./assets/photographers/${portrait}/m.jpg`;
+    imgLink =`../assets/photographers/${portrait.slice(0, portrait.length-4)}/m.jpg`;
 
     /*========== CONST OF ARTICLE  ==========*/
-    const h2 = section.querySelector('h2'),
+    const h1 = section.querySelector('h1'),
     details = section.querySelectorAll('span'),
     img = section.querySelector('img');
 
     /*========== UPDATE PHOTOGRAPHER SECTION ==========*/
-    h2.textContent = name; // -> TITLE
-    details[0].textContent = location // -> LOCATION
+    h1.textContent = name; // -> TITLE
+    details[0].textContent = country+', '+city // -> LOCATION
     details[1].textContent = tagline //  -> TAGLINE
     img.src = imgLink; img.alt = name // -> IMAGE
 

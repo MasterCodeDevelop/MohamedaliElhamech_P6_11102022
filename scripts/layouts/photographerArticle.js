@@ -10,7 +10,7 @@ export function photographerArticle(data) {
     /*========== CONST ==========*/
     const { id, name, portrait, city, country, tagline, price } = data,
     article = getCloneTemplate('photographer-article'),
-    imgLink =`./assets/photographers/${portrait}/`,
+    imgLink =`./assets/photographers/${portrait.slice(0, portrait.length-4)}/`,
     a = article.querySelector('a'),
     sources = article.querySelectorAll('source'),
     img = article.querySelector('img'),
@@ -19,7 +19,7 @@ export function photographerArticle(data) {
     details = article.querySelectorAll('span');
 
     /*========== UPDATE ARTICLE  ==========*/
-    a.href = `./photographer.html?id=${id}`;// -> LINK
+    a.href = `./pages/photographer.html?id=${id}`;// -> LINK
     h2.ariaLabel = name; h2.textContent = name;// -> TITLE/NAME
     h3.textContent = city + ', ' + country; // -> LOCATION
     details[1].textContent = tagline; // -> TAGLINE

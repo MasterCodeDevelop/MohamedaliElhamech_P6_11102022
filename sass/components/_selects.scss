@@ -1,24 +1,28 @@
-
-.select *:focus {
-  outline: none;
-  text-decoration: underline;
-  text-shadow: 0 0 0.5px $clr-white;
+.select {
+  outline: 0;
+  transition: box-shadow .5s;
+  &:focus, &:hover {
+    box-shadow: rgba($clr-primary, 0.4) 0 1px, rgba($clr-secondary, 0.4) 0 5px;
+  }
+  &:focus {   
+    animation: btn-focused 1s linear infinite;                
+  } 
 }
 .dropdown {
   position: relative;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 269px;
-  height: 69px;
+  width: resWidth(269);
+  height:resWidth(69);
 }
 .select-label {
   font-weight: 500;
   display: flex;
   justify-content: space-between;
-  font-size: 18px;
-  width: 74px;
-  line-height: 23px;
+  font-size: resSize(18);
+  width: resWidth(74);
+  line-height: resWidth(23);
   font-weight: 700;
   text-align: center;
 }
@@ -30,19 +34,19 @@
   display: flex;
   align-items: center;
   color: $clr-white;
-  min-height: 69px;
-  width: 170px;
-  padding: 9px 10px 10px 10px;
+  min-height: resWidth(69);
+  width: resWidth(170);
+  padding: resWidth(10);
   cursor: pointer;
   border-radius: 5px;
   z-index: 1;
   &::after {
     content: "";
     position: absolute;
-    top: 29.5px;
-    right: 18px;
-    width: 8px;
-    height: 8px;
+    top: resWidth(29.5);
+    right: resWidth(18);
+    width: resWidth(8);
+    height: resWidth(8);
     border-top: 3px solid $clr-white;
     border-right: 3px solid $clr-white;
     transform: rotate(-225deg);
@@ -50,14 +54,13 @@
   }
   &[aria-expanded=true] {
     box-shadow: 0 1px 1px rgba($clr-black,.12), 0 2px 2px rgba($clr-black, 0.12), 0 4px 4px rgba($clr-black, 0.12), 0 8px 8px rgba($clr-black, 0.12), 0 16px 16px rgba($clr-black, 0.12);
-    height: 170px;
+    height: resWidth(170);
     &::after {
-      top: 29px;
-      right: 18px;
+      top: resWidth(29);
+      right: resWidth(18);
       transform: rotate(-45deg);
     }
   }
-  
 }
 .optgroup {
   display: none;
@@ -66,10 +69,10 @@
   list-style: none;
 }
 .option, .current-option{
-  font-size: 18px;
+  font-size: resSize(18);
   font-weight: 700;
-  line-height: 23px;
-  padding: 14px 10px;
+  line-height: resWidth(23);
+  padding: resWidth(14) resWidth(10);
 }
 .option:nth-child(n+2) {
   border-top: 1px solid $clr-white;

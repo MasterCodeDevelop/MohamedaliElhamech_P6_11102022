@@ -1,0 +1,25 @@
+//====================== tablet ======================//
+@media screen and ( max-width: 768px) {
+    :root {
+        --ratio-size: 1.5;
+        --ratio-width: 1.5;
+    }
+    .photographer-header {
+        flex-direction: column;
+        gap: 2rem;
+        span {
+            text-align: center;
+        }
+        .btn, &__profile {
+            order: 1;
+        }
+    }
+    .galery-section {
+        gap: 0;
+        justify-content: space-between;
+    }
+    .modal-galery__figure {
+        width: calc(var(--res-width) * 1050);
+        max-height: calc(var(--res-width) * 1024); 
+    }
+}

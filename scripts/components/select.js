@@ -1,7 +1,8 @@
 import { updateGalery } from "./galery.js";
 
 /**########################### CONST ###########################**/
-const select = document.getElementById('select'),
+const label = document.getElementById('select-label'),
+select = document.getElementById('select'),
 optgroup = document.getElementById('optgroup'),
 currentOption = document.getElementById('current-option');
 
@@ -12,6 +13,7 @@ currentOption = document.getElementById('current-option');
  */
 function openSelect() {
     select.ariaExpanded = true;
+    select.ariaHidden = false;
     optgroup.style.display = "block";
     currentOption.style.display = "none";
     optgroup.firstElementChild.focus();
@@ -24,6 +26,7 @@ function openSelect() {
  */
 function closeSelect() {
     select.ariaExpanded = false;
+    select.ariaHidden = true;
     optgroup.style.display = "none";
     currentOption.style.display = "block";
     window.removeEventListener('keydown', handleKeydown, false);
@@ -93,6 +96,7 @@ function handleOption(e) {
  * Updates the behavior of the dropdown
  */
 export function updateSelect() {
+    label.addEventListener('click', () => select.focus());
     select.addEventListener('click', openSelect);
     select.addEventListener('keydown', e => {
         if (e.key === 'Enter' && document.activeElement === select) {

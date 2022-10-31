@@ -15,21 +15,18 @@ var index, data;
 function updateGalery(data) {
     const { photographerId, image, video, title } = data;
     figure.innerHTML='';
-    /*========== IMAGE ==========*/
-    if(image) {
-        const img = document.createElement('img');
-        img.src = `./assets/photos/${photographerId}/${image}.jpg`;
-        img.alt = title;
-        figure.appendChild(img);
-    }
-    /*========== VIDEO ==========*/
-    else if (video) {
-        const newVideo = document.createElement('video');
-        newVideo.controls = true;
-        newVideo.src = `./assets/photos/${photographerId}/${video}`;
-        figure.appendChild(newVideo);
-    }
-    
+
+    /*========== SOURCE MEDIA (IMAGE & VIDEO) ==========*/
+    const source = (image)
+        ?document.createElement('img')
+        :document.createElement('video');
+    source.src = `../assets/photos/${photographerId}/${image?image:video}`;
+    source.setAttribute('alt', title);
+    source.ariaLabel="image closeup view"
+    source.tabIndex = 0;
+    if(video)source.controls = true;
+    figure.appendChild(source);
+
     /*========== FIGCAPTION ==========*/
     figcaption.textContent = title;
     figcaption.className = 'modal-galery__title';
@@ -68,14 +65,13 @@ function nextElement() {
  * Close the modal and focus the last show element (photo/video)
  */
 function closeModal() {
-    const cardImg = (data[index].image) 
-    ?   cards[index].querySelector('img')
-    :   cards[index].querySelector('video');
-
+    const article = document.getElementById('article-'+data[index].id),
+    cardSource = article.querySelector('.card-header').firstChild;
+    
     /*========== ARRIA ==========*/
     photographer.ariaHidden = false;
     modal.ariaHidden = true;
-    cardImg.focus();
+    cardSource.focus();
 
     /*========== REMOVE ==========*/
     body.classList.remove('no-scroll');
@@ -97,7 +93,7 @@ function handleKeydown (e) {
     else if(keyCode === 39) nextElement();//ArrowRight
     else if(keyCode === 27) closeModal(); // Escape
     else if (keyCode === 32) {
-        if(video) (video.paused)   
+        if(video && activeElement != video) (video.paused)   
         ?   video.play()
         :   video.pause();
     }/* Space */

@@ -1,0 +1,9 @@
+/*====================== galery ======================*/
+.galery-section {
+    margin-block: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: resWidth(80);
+    row-gap: resWidth(20);
+    justify-content: flex-start;
+}

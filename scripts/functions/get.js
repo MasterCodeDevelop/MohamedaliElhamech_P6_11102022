@@ -5,7 +5,7 @@ const jsonData = await getJsonData();
  * @returns  {promise} object Json
  */
 export async function getJsonData() {
-    const response = await fetch('./data/photographers.json');
+    const response = await fetch('../data/photographers.json');
     return await response.json();
 }
 /**
