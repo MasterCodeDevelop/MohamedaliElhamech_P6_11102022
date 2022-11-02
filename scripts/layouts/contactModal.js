@@ -3,7 +3,7 @@
 const body = document.querySelector('body'),
 modal = document.getElementById('contact-modal'),
 close = modal.querySelector('#close-modal'),
-title = modal.querySelector('h1'),
+title = modal.querySelector('h2'),
 form = modal.querySelector('form'),
 firstName = document.getElementById('firstname'),
 lastName = document.getElementById('lastname'),

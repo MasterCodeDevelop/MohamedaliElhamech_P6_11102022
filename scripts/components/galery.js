@@ -30,8 +30,8 @@ function setArticle(data, sortedGalery) {
     header.appendChild(source);
     
     /*========== TITLE ==========*/
-    const h5 = article.querySelector('h5');
-    h5.textContent = title;
+    const h2 = article.querySelector('h2');
+    h2.textContent = title;
 
     /*========== LIKES ==========*/
     addLike({ article, id, photographerId, likes })

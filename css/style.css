@@ -211,6 +211,7 @@ a {
   font-size: calc(var(--res-width) * 24 * var(--ratio-size));
 }
 .card-details__title {
+  font-size: calc(var(--res-width) * 24 * var(--ratio-size));
   font-weight: 400;
   white-space: nowrap;
   text-overflow: ellipsis;
@@ -280,8 +281,12 @@ a {
   height: calc(var(--res-width) * 69 * var(--ratio-width));
   border-radius: 5px;
 }
+.form-group[data-error] {
+  margin-bottom: calc(var(--res-width) * 27 * var(--ratio-width));
+}
 .form-group[data-error]::after {
-  padding-top: calc(var(--res-width) * 20 * var(--ratio-width));
+  position: absolute;
+  padding-top: calc(var(--res-width) * 7 * var(--ratio-width));
   content: attr(data-error);
   font-size: calc(var(--res-width) * 30 * var(--ratio-size));
   font-family: "Roboto";
@@ -298,25 +303,11 @@ a {
   border: calc(var(--res-width) * 6 * var(--ratio-width)) solid rgb(194, 21, 21);
 }
 
-/*====================== contact ======================*/
-#contact_modal {
+/*====================== header ======================*/
+head address {
   display: none;
 }
 
-.contact_button {
-  font-size: 20px;
-  font-weight: bold;
-  color: white;
-  padding: 11px;
-  width: 170px;
-  height: 70px;
-  border: none;
-  background-color: #901C1C;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-/*====================== header ======================*/
 header {
   display: flex;
   flex-direction: row;
@@ -483,7 +474,7 @@ header h1 {
   position: relative;
   min-width: calc(var(--res-width) * 669 * var(--ratio-width));
   max-width: calc(var(--res-height) * 669);
-  max-height: calc(var(--res-width) * 1010 * var(--ratio-width));
+  max-height: calc(var(--res-width) * 1080 * var(--ratio-width));
   padding: calc(var(--res-width) * 35 * var(--ratio-width));
   background-color: #DB8876;
   border-radius: 5px;
@@ -556,6 +547,13 @@ header h1 {
   justify-content: flex-start;
 }
 
+footer address {
+  opacity: 0;
+}
+footer address:focus {
+  opacity: 1;
+}
+
 /*|||||||||||||||||||||| SCREENS ||||||||||||||||||||||*/
 @media screen and (min-width: 769px) {
   :root {
@@ -587,7 +585,7 @@ header h1 {
     max-height: calc(var(--res-width) * 1024);
   }
 }
-@media screen and (max-height: 70.14vw) {
+@media screen and (max-height: 72.14vw) {
   .contact-modal {
     padding-block: 2vw;
     align-items: flex-start;

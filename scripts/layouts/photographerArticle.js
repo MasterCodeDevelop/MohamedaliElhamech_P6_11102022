@@ -13,6 +13,7 @@ export function photographerArticle(data) {
     imgLink =`./assets/photographers/${portrait.slice(0, portrait.length-4)}/`,
     a = article.querySelector('a'),
     sources = article.querySelectorAll('source'),
+    picture = article.querySelector('picture'),
     img = article.querySelector('img'),
     h2 = article.querySelector('h2'),
     h3 = article.querySelector('h3'),
@@ -20,11 +21,13 @@ export function photographerArticle(data) {
 
     /*========== UPDATE ARTICLE  ==========*/
     a.href = `./pages/photographer.html?id=${id}`;// -> LINK
+    a.title = 'photographer '+name;
     h2.ariaLabel = name; h2.textContent = name;// -> TITLE/NAME
     h3.textContent = city + ', ' + country; // -> LOCATION
     details[1].textContent = tagline; // -> TAGLINE
     details[1].textContent = price + "€/jour";// -> PRICE
     // PICTURE:
+    picture.title = 'picture '+ name;
     sources[0].srcset = imgLink+"s.jpg";
     sources[1].srcset = imgLink+"m.jpg";
     sources[2].srcset = imgLink+"l.jpg";

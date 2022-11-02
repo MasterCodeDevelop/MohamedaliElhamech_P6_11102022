@@ -26,8 +26,12 @@
         border-radius: 5px;
     }
     &-group {
+        &[data-error] {
+            margin-bottom: resWidth(27);
+        }
         &[data-error]::after {
-            padding-top: resWidth(20);
+            position: absolute;
+            padding-top: resWidth(7);
             content: attr(data-error);
             font-size: resSize(30);
             font-family: "Roboto";
