@@ -14,6 +14,7 @@
         border: none;
     }
     textarea {
+        resize: none;
         min-height: resWidth(170);
     }
     button[type=submit] {
@@ -23,5 +24,24 @@
         width: resWidth(170);
         height: resWidth(69);
         border-radius: 5px;
+    }
+    &-group {
+        &[data-error]::after {
+            padding-top: resWidth(20);
+            content: attr(data-error);
+            font-size: resSize(30);
+            font-family: "Roboto";
+            color: rgb(194, 21, 21);
+            display: block;
+            line-height: resWidth(30);
+            opacity: 0;
+            transition: 0.3s;
+        }
+        &[data-error-visible=true]::after {
+            opacity: 1;
+        }
+        &[data-error-visible=true] input, &[data-error-visible=true] textarea {
+            border: resWidth(6) solid rgb(194, 21, 21);
+        }
     }
 }

@@ -34,7 +34,7 @@ export function addLike(props) {
     
         if(!photographerLikes) { 
             photographerLikes = [];
-            set(photographerLikes); 
+            setSession(photographerLikes); 
         }
     
         const index = photographerLikes.findIndex(e => e === id);

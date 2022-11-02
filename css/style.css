@@ -239,9 +239,6 @@ a {
   transform: rotate(-45deg);
   transform-origin: 0 100%;
 }
-.card-details__likes:hover::before, .card-details__likes:hover::after {
-  background-color: #D3573C;
-}
 .card-details__likes:after {
   right: calc(var(--res-width) * 12 * var(--ratio-width));
   transform: rotate(45deg);
@@ -252,9 +249,6 @@ a {
 }
 .card-details__likes.is-liked::before, .card-details__likes.is-liked::after {
   background-color: #D3573C;
-}
-.card-details__likes:hover {
-  color: #D3573C;
 }
 
 /*|||||||||||||||||||||| LAYOUT ||||||||||||||||||||||*/
@@ -275,6 +269,7 @@ a {
   border: none;
 }
 .form textarea {
+  resize: none;
   min-height: calc(var(--res-width) * 170 * var(--ratio-width));
 }
 .form button[type=submit] {
@@ -284,6 +279,23 @@ a {
   width: calc(var(--res-width) * 170 * var(--ratio-width));
   height: calc(var(--res-width) * 69 * var(--ratio-width));
   border-radius: 5px;
+}
+.form-group[data-error]::after {
+  padding-top: calc(var(--res-width) * 20 * var(--ratio-width));
+  content: attr(data-error);
+  font-size: calc(var(--res-width) * 30 * var(--ratio-size));
+  font-family: "Roboto";
+  color: rgb(194, 21, 21);
+  display: block;
+  line-height: calc(var(--res-width) * 30 * var(--ratio-width));
+  opacity: 0;
+  transition: 0.3s;
+}
+.form-group[data-error-visible=true]::after {
+  opacity: 1;
+}
+.form-group[data-error-visible=true] input, .form-group[data-error-visible=true] textarea {
+  border: calc(var(--res-width) * 6 * var(--ratio-width)) solid rgb(194, 21, 21);
 }
 
 /*====================== contact ======================*/
@@ -465,13 +477,13 @@ header h1 {
 .contact-modal {
   background-color: rgba(196, 196, 196, 0.4);
   overflow-y: auto;
+  margin-block: auto;
 }
 .contact-modal__content {
-  margin-top: calc(990px - 100vh);
-  margin-bottom: 10px;
   position: relative;
   min-width: calc(var(--res-width) * 669 * var(--ratio-width));
   max-width: calc(var(--res-height) * 669);
+  max-height: calc(var(--res-width) * 1010 * var(--ratio-width));
   padding: calc(var(--res-width) * 35 * var(--ratio-width));
   background-color: #DB8876;
   border-radius: 5px;
@@ -539,19 +551,13 @@ header h1 {
   margin-block: 20px;
   display: flex;
   flex-wrap: wrap;
-  gap: calc(var(--res-width) * 80 * var(--ratio-width));
+  gap: calc(var(--res-width) * 95 * var(--ratio-width));
   row-gap: calc(var(--res-width) * 20 * var(--ratio-width));
   justify-content: flex-start;
 }
 
 /*|||||||||||||||||||||| SCREENS ||||||||||||||||||||||*/
-@media screen and (min-width: 1440px) {
-  :root {
-    --ratio-size: 1;
-    --ratio-width: 1;
-  }
-}
-@media screen and (max-width: 1439px) {
+@media screen and (min-width: 769px) {
   :root {
     --ratio-size: 1;
     --ratio-width: 1;
@@ -579,6 +585,13 @@ header h1 {
   .modal-galery__figure {
     width: calc(var(--res-width) * 1050);
     max-height: calc(var(--res-width) * 1024);
+  }
+}
+@media screen and (max-height: 70.14vw) {
+  .contact-modal {
+    padding-block: 2vw;
+    align-items: flex-start;
+    max-height: auto;
   }
 }
 @media screen and (max-width: 425px) {

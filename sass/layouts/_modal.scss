@@ -90,12 +90,13 @@
 .contact-modal {
     background-color: rgba(#C4C4C4, 0.4);
     overflow-y: auto;
+    margin-block: auto;
     &__content {
-        margin-top: calc(990px - 100vh);
-        margin-bottom: 10px;
         position: relative;
         min-width: resWidth(669);
         max-width: resHeight(669);
+        max-height: resWidth(1010);
+
         padding: resWidth(35);
         background-color: #DB8876;
         border-radius: 5px;

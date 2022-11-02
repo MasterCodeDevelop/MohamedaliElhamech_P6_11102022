@@ -79,9 +79,6 @@
                 border-radius: 100% 100% 0 0; 
                 transform: rotate(-45deg); 
                 transform-origin: 0 100%; 
-            } 
-            &:hover::before, &:hover::after {
-                background-color: $clr-secondary;
             }
             &:after { 
                 right: resWidth(12); 
@@ -93,9 +90,6 @@
                 &::before, &::after {
                     background-color: $clr-secondary;
                 }
-            }
-            &:hover {
-                color: $clr-secondary;
             }
         }
     }

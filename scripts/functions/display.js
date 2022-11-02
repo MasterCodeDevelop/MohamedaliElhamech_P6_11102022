@@ -30,12 +30,21 @@ export async function displayPhotographers(photographers) {
     /*========== CONST OF ARTICLE  ==========*/
     const h1 = section.querySelector('h1'),
     details = section.querySelectorAll('span'),
+    btn = section.querySelector('button'),
     img = section.querySelector('img');
 
     /*========== UPDATE PHOTOGRAPHER SECTION ==========*/
     h1.textContent = name; // -> TITLE
     details[0].textContent = country+', '+city // -> LOCATION
     details[1].textContent = tagline //  -> TAGLINE
+    btn.addEventListener('click', e => {
+        const body = document.querySelector('body'),
+        modal = document.getElementById('contact-modal');
+
+        body.classList.add("scroll-hidden");
+        modal.classList.add("is-open");
+        modal.ariaHidden = false;
+    })
     img.src = imgLink; img.alt = name // -> IMAGE
 
     /*========== ADD SECTION AS FIRST CHILD IN MAIN PAGE PHOTOGRAPHER ==========*/

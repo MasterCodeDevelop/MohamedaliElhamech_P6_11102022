@@ -1,11 +1,5 @@
 //====================== laptop ======================//
-@media screen and ( min-width: 1440px) {
-    :root {
-        --ratio-size: 1;
-        --ratio-width: 1;
-    }
-}
-@media screen and ( max-width: 1439px) {
+@media screen and ( min-width: 769px) {
     :root {
         --ratio-size: 1;
         --ratio-width: 1;

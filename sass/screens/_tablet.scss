@@ -23,3 +23,11 @@
         max-height: calc(var(--res-width) * 1024); 
     }
 }
+
+@media screen and ( max-height: 70.14vw ) {
+    .contact-modal {
+        padding-block: 2vw;
+        align-items: flex-start;
+        max-height: auto;
+    }
+}
