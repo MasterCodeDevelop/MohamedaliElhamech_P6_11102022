@@ -55,13 +55,17 @@ export function addLike(props) {
      * @param {Element} like element in the card of galery photographer
      */
     function initialLike(like) {
-        const photographerLikes = getSession(),
-        index = photographerLikes.findIndex(e => e === id);
-        if (index == -1) {
+        const photographerLikes = getSession();
+        if (photographerLikes == null) {
             like.textContent = likes;
-        } else {
-            like.textContent = likes + 1;
-            like.classList.add('is-liked');
+        }else {
+            const index = photographerLikes.findIndex(e => e === id);
+            if (index == -1) {
+                like.textContent = likes;
+            } else {
+                like.textContent = likes + 1;
+                like.classList.add('is-liked');
+            }
         }
     }
 
