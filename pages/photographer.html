@@ -36,7 +36,7 @@
     </div>
 
     <!--=============== PHOTOGRAPHER-HEADER ===============-->
-    <section id="galery-section"class="galery-section"></section>
+    <section id="galery-section" class="galery-section"></section>
 
   </main>
 
@@ -46,6 +46,36 @@
       <figure class="modal-galery__figure"></figure>
       <a href="#next-image" class="modal-galery__arrow right" aria-label="next image" tabindex="0">&gt;</a>
       <button class="modal-galery__close-btn" tabindex="0" aria-label="close dialog" >✖</button>
+  </div>
+  <!--=============== MODAL-CONTACT ===============-->
+  <div id="contact-modal" class="modal contact-modal is-open" tabindex="-1" role="dialog" aria-hidden="true" aria-label="image closeup view" >
+    <div class="contact-modal__content">
+      <h1 class="contact-modal__title" tabindex="0">
+        Contactez-moi <br>
+        Mimi Keel
+      </h1>
+      <button class="contact-modal__close-btn" tabindex="0" aria-label="close dialog" >✖</button>
+      <form action="" class="form" method="post">
+        <div>
+          <label for="firstname">Prénom</label>
+          <input type="text" name="firstname" id="firstname">
+        </div>
+        <div>
+          <label for="lastname">Nom</label>
+          <input type="text" name="lastname" id="lastname">
+        </div>
+        <div>
+          <label for="email">Email</label>
+          <input type="email" name="email" id="email">
+        </div>
+        <div>
+          <label for="message">Votre message</label>
+          <textarea name="message" id="message" cols="30" rows="10"></textarea>
+        </div>
+        <button type="submit">Envoyer</button>
+      </form>
+
+    </div>
   </div>
 
   <!--=============== TEMPLATES ===============-->

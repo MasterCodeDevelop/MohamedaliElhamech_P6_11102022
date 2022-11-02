@@ -259,30 +259,30 @@ a {
 
 /*|||||||||||||||||||||| LAYOUT ||||||||||||||||||||||*/
 /*====================== form ======================*/
-form {
-  display: flex;
-  width: 100%;
-  flex-direction: column;
-  align-items: flex-start;
+.form {
+  display: grid;
+  gap: calc(var(--res-width) * 26 * var(--ratio-width));
 }
-
-form label {
-  color: #312E2E;
-  font-size: 36px;
+.form label {
+  font-size: calc(var(--res-width) * 36 * var(--ratio-size));
+  padding-bottom: calc(var(--res-width) * 5 * var(--ratio-width));
 }
-
-form div {
-  display: flex;
-  flex-direction: column;
+.form input, .form textarea {
+  font-size: calc(var(--res-width) * 36 * var(--ratio-size));
   width: 100%;
-  align-items: self-start;
-  margin-bottom: 26px;
-}
-
-form input {
-  width: 100%;
-  height: 68px;
+  height: calc(var(--res-width) * 68 * var(--ratio-width));
+  border-radius: 5px;
   border: none;
+}
+.form textarea {
+  min-height: calc(var(--res-width) * 170 * var(--ratio-width));
+}
+.form button[type=submit] {
+  color: #FFF;
+  background-color: #901C1C;
+  font-size: calc(var(--res-width) * 18 * var(--ratio-size));
+  width: calc(var(--res-width) * 170 * var(--ratio-width));
+  height: calc(var(--res-width) * 69 * var(--ratio-width));
   border-radius: 5px;
 }
 
@@ -377,35 +377,6 @@ header h1 {
 }
 
 /*====================== modal ======================*/
-/*.modal {
-    border-radius: 5px;
-    background-color: #DB8876;
-    width: 50%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    padding: 35px;
-    margin: auto;
-}
-
-.modal header {
-    justify-content: space-between;
-    width: 100%;
-}
-
-.modal header img {
-    cursor: pointer;
-}
-
-.modal header h2 {
-    font-size: 64px;
-    font-weight: normal;
-    text-align: center;
-}
-.modal-galery {
-
-}*/
 .modal {
   position: relative;
   display: none;
@@ -424,6 +395,7 @@ header h1 {
   display: flex;
 }
 
+/*=== modal-galery ===*/
 .modal-galery__arrow {
   display: flex;
   justify-content: center;
@@ -487,6 +459,41 @@ header h1 {
   margin-top: calc(var(--res-width) * 15 * var(--ratio-width));
   transition: box-shadow 0.7s;
   width: max-content;
+}
+
+/*=== contact-modal ===*/
+.contact-modal {
+  background-color: rgba(196, 196, 196, 0.4);
+  overflow-y: auto;
+}
+.contact-modal__content {
+  margin-top: calc(990px - 100vh);
+  margin-bottom: 10px;
+  position: relative;
+  min-width: calc(var(--res-width) * 669 * var(--ratio-width));
+  max-width: calc(var(--res-height) * 669);
+  padding: calc(var(--res-width) * 35 * var(--ratio-width));
+  background-color: #DB8876;
+  border-radius: 5px;
+}
+.contact-modal__title {
+  font-size: calc(var(--res-width) * 64 * var(--ratio-size));
+  font-weight: 400;
+}
+.contact-modal__close-btn {
+  position: absolute;
+  top: calc(var(--res-width) * 35 * var(--ratio-width));
+  right: calc(var(--res-width) * 35 * var(--ratio-width));
+  margin-bottom: calc(var(--res-width) * 369 * var(--ratio-width));
+  margin-inline-start: -40px;
+  background: transparent;
+  border: 0;
+  color: #FFF;
+  width: calc(var(--res-width) * 42 * var(--ratio-size));
+  height: calc(var(--res-width) * 42 * var(--ratio-size));
+  font-size: calc(var(--res-width) * 55 * var(--ratio-size));
+  line-height: calc(var(--res-width) * 42 * var(--ratio-size));
+  cursor: pointer;
 }
 
 /*====================== photographer ======================*/
