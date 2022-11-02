@@ -65,14 +65,14 @@
         display: flex;
         flex-direction: column;
         justify-content: center;
-        overflow: hidden;
         animation-fill-mode: forwards;
         animation-timing-function: ease;
-        width: resWidth(1050);
-        max-width: resHeight(1050);
+        width: resWidth(1060);
+        max-width: resHeight(1060);
         height: resHeight(1024);
         max-height: resWidth(1024);
         padding-top: 5.9%;
+        padding-inline: resWidth(10);
         img, video {
             max-height: 83.55%;
             border-radius: 5px;
@@ -94,32 +94,24 @@
         cursor: pointer;
     }
     img, video {
-        outline: 0;
         transition: box-shadow .5s;  
-        &:focus, &:hover {
+        padding: resWidth(10px);
+        &:hover {
             box-shadow: rgba($clr-primary, 0.4) 0px 0px 0px 3px, rgba($clr-primary, 0.65) 0px 6px 8px -2px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
         }
     }
     &__arrow, &__close-btn {
-        outline: 0;
         transition: box-shadow .5s;  
         &:focus, &:hover {
             color: $clr-secondary;
-        }
-        &:focus {
-            box-shadow: rgba($clr-primary, 0.4) 0px 0px 0px 3px, rgba($clr-primary, 0.65) 0px 6px 8px -2px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
-            animation: card-focused 1s linear infinite;                
         }
     }
     &__title {
         font-size: resSize(24);
         color: $clr-primary;
         max-height: 16.45%;
-        outline: 0;
+        margin-top: resWidth(15);
         transition: box-shadow .7s;
         width: max-content;
-        &:focus {
-            animation: text-focused 1s linear infinite;                
-        }
     }
 }

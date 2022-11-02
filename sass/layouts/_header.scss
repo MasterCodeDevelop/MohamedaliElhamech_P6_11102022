@@ -6,13 +6,6 @@ header {
     align-items: center;
     height: resWidth(90);
     margin: resWidth(30) resWidth(100);
-    a {
-        outline: 0;
-        transition: box-shadow .5s;
-        &:focus, &:hover {
-            animation: text-focused 1s linear infinite;                
-        }
-    }
     h1 {
         color: $clr-primary;
         font-size: resSize(36);

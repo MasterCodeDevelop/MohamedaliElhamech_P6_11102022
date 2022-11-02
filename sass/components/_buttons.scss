@@ -9,12 +9,8 @@
     background-color: $clr-primary;
     border-radius: 5px;
     cursor: pointer;
-    outline: 0;
     transition: box-shadow .5s;  
-    &:focus, &:hover {
+    &:hover {
         box-shadow: rgba($clr-primary, 0.4) 0 1px, rgba($clr-secondary, 0.4) 0 5px;
     }
-    &:focus {   
-        animation: btn-focused 1s linear infinite;                
-    }  
 }

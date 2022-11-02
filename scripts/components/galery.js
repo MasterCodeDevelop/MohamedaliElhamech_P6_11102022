@@ -1,7 +1,7 @@
 /**########################### IMPORT ###########################**/
 import { getPhotographerId, getCloneTemplate, getGalery } from '../functions/get.js';
 import { show } from './galeryModal.js';
-
+import { addLike } from './like.js';
 /**########################### CONST ###########################**/
 const photographerId = getPhotographerId(),
 photographerGalery = await getGalery(photographerId),
@@ -34,8 +34,7 @@ function setArticle(data, sortedGalery) {
     h5.textContent = title;
 
     /*========== LIKES ==========*/
-    const span = article.querySelector('span');
-    span.textContent = likes;
+    addLike({ article, id, photographerId, likes })
 
     article.id = 'article-'+id;
     section.appendChild(article)

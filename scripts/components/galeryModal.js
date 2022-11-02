@@ -87,8 +87,6 @@ function handleKeydown (e) {
     const keyCode = e.keyCode ? e.keyCode : e.which,
     activeElement = document.activeElement,
     video = modal.querySelector('video');
-    //e.preventDefault();
-    //document.activeElement = modal;
     if(keyCode === 37) previousElement();//ArrowLeft
     else if(keyCode === 39) nextElement();//ArrowRight
     else if(keyCode === 27) closeModal(); // Escape
@@ -97,12 +95,10 @@ function handleKeydown (e) {
         ?   video.play()
         :   video.pause();
     }/* Space */
-  
-    // control Tab
-    const a = ( !e.shiftKey && keyCode === 9 && activeElement == btn ),
-    b = ((e.shiftKey && keyCode === 9) && activeElement == arrows[0]),
-    c = (activeElement.parentElement != modal && activeElement.parentElement.parentElement != modal);
-    if( a || b || c ) {
+    else if ((e.shiftKey && keyCode === 9) && activeElement == arrows[0]) {
+        btn.focus();
+    }
+    else if(( !e.shiftKey && keyCode === 9 && activeElement == btn ) || (activeElement.parentElement != modal && activeElement.parentElement.parentElement != modal) ) {
         modal.focus();
     }
 }

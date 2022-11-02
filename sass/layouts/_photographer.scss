@@ -20,13 +20,6 @@
             display: grid;
             gap: 19px;
         }
-        &__profile-name, &__profile-details-location, &__profile-details-tagline{
-            outline: 0;
-            transition: box-shadow .7s;
-            &:focus {
-                animation: text-focused 1s linear infinite;                
-            }
-        }
         &__profile-name {
             font-size: resSize(64);
             font-weight: normal;
