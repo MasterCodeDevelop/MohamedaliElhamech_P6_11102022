@@ -1,5 +1,3 @@
-const jsonData = await getJsonData();
-
 /**
  *  Fetches the data photographers
  * @returns  {promise} object Json
@@ -13,6 +11,7 @@ export async function getJsonData() {
  * @returns {promise} array of phtographers
  */
 export async function getPhotographers() {
+    const jsonData = await getJsonData();
     return jsonData.photographers
 }
 /**
@@ -28,6 +27,7 @@ export function getPhotographerId() {
  * @returns {promise} JSON => Retrieve profile data from its ID in data/photographers.json
  */
  export async function getProfile(photographerId) {
+    const jsonData = await getJsonData();
     return jsonData.photographers.find(photographer => photographer.id === photographerId);
 }
 /**
@@ -48,8 +48,9 @@ export async function getGalery(photographerId) {
     let sessionGalery = JSON.parse(sessionStorage.getItem(photographerId));
 
     if (!sessionGalery) {
+        const jsonData = await getJsonData();
         sessionGalery = jsonData.media.filter(e => e.photographerId === photographerId);
         sessionStorage.setItem(photographerId, JSON.stringify(sessionGalery));
     }
     return sessionGalery;
-};
+}

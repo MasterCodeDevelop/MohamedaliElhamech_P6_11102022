@@ -15,7 +15,7 @@ export async function displayPhotographers(photographers) {
         const userCardDOM = getUserCardDOM(photographer);
         photographersSection.appendChild(userCardDOM);
     });
-};
+}
 /**
  * Update data of the photographer profile header to profile.html
  * @param {JSON} photographer
@@ -37,7 +37,7 @@ export async function displayPhotographers(photographers) {
     h1.textContent = name; // -> TITLE
     details[0].textContent = country+', '+city // -> LOCATION
     details[1].textContent = tagline //  -> TAGLINE
-    btn.addEventListener('click', e => {
+    btn.addEventListener('click', () => {
         const body = document.querySelector('body'),
         modal = document.getElementById('contact-modal');
 

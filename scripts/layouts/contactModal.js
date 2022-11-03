@@ -47,7 +47,7 @@ function closeModal() {
     body.classList.remove("scroll-hidden");
     modal.classList.remove("is-open");
     modal.ariaHidden = true;
-};
+}
 /**
  * Display the error message
  * @param {Element} parentElement 

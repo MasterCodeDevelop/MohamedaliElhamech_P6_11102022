@@ -8,6 +8,6 @@ import { displayPhotographers } from '../functions/display.js';
 async function init() {
     const photographers = await getPhotographers();
     displayPhotographers(photographers);
-};
+}
 
 init();

@@ -4,7 +4,6 @@ import { show } from './galeryModal.js';
 import { addLike } from './like.js';
 /**########################### CONST ###########################**/
 const photographerId = getPhotographerId(),
-photographerGalery = await getGalery(photographerId),
 section = document.getElementById('galery-section');
 
 /**########################### FUNCTION ###########################**/
@@ -61,7 +60,9 @@ function setArticle(data, sortedGalery) {
  * @param {string} sortOption value current select
  */
  export async function updateGalery(sortOption) {
-    const sortedGalery = sortGalery(photographerGalery, sortOption);
+    const photographerGalery = await getGalery(photographerId),
+    sortedGalery = sortGalery(photographerGalery, sortOption);
+    
     section.innerHTML = '';// reset the section
     for (const data of sortedGalery) setArticle(data, sortedGalery);
 }

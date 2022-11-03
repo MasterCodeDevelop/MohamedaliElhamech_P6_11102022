@@ -1,7 +1,6 @@
 /**########################### CONST ###########################**/
 const body = document.querySelector('body'),
 photographer = document.getElementById('photographer'),
-cards = document.getElementsByClassName('card'),
 modal = document.getElementById('modal-galery'),
 arrows = modal.querySelectorAll('a'),
 figure =  modal.querySelector('figure'),
