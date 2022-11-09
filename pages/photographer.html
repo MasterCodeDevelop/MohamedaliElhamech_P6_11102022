@@ -5,34 +5,43 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="author" content="elhamech mohamed-ali #MASTER">
-  <link rel="icon" type="image/png" href="../assets/icons/icon.png" />
-  <link href="../css/style.css" rel="stylesheet" type="text/css" />
+  <link rel="icon" type="image/png" href="../assets/icons/icon.png">
+  <link href="../css/style.css" rel="stylesheet" type="text/css">
   <title>Fisheye - photographe</title>
 </head>
 
 <body>
   <!--=============== HEADER ===============-->
   <header>
-    <a href="../index.html" tabindex="0" title="Fisheye Home page">
+    <a href="../index.html" tabindex="0" target="_self" title="Fisheye Home page">
       <img src="../assets/images/logo.png" class="logo" alt="Fisheye Home page" />
     </a>
   </header>
 
   <!--=============== MAIN ===============-->
   <main id="photographer" class="photographer" aria-hidden="false">
-    <!--=============== ADD PHOTOGRAPHER-HEADER FROM JS ===============-->
+    <!--=============== PHOTOGRAPHER-HEADER ===============-->
+    <section class="photographer-header">
+      <div class="photographer-header__profile">
+        <h1 class="photographer-header__profile-name" tabindex="0"></h1>
+        <div class="photographer-header__profile-details">
+          <span class="photographer-header__profile-details-location" tabindex="0"></span>
+          <span class="photographer-header__profile-details-tagline" tabindex="0"></span>
+        </div>
+      </div>
+      <button id="openContactModal" type="button" class="btn" id="contact-btn" value="Contact Me">Contactez-moi</button>
+      <img class="photographer-header__picture" alt="">
+    </section>
 
     <!--=============== SELECT DROP DOWN ===============-->
-    <div class="dropdown">
-      <label id="select-label" class="select-label" for="select">Trier par</label>
-      <nav id="select" class="select" role="button" aria-haspopup="listbox" tabindex="0" aria-expanded="false" aria-hidden=true>
-        <span id="current-option" class="current-option" data-value="popularity">Popularité</span>
-        <ul role="listbox" id="optgroup" class="optgroup" tabindex="-1" aria-labelledby="listbox-label" aria-activedescendant="listbox-popularity">
-          <li class="option" role="option" data-value="popularity" tabindex="-1" id="listbox-popularity" aria-selected="true">Popularité</li>
-          <li class="option" role="option" data-value="date" tabindex="-1" id="listbox-date" aria-selected="false"> Date</li>
-          <li class="option" role="option" data-value="title" tabindex="-1" id="listbox-title" aria-selected="false"> Titre</li>
-        </ul>
-      </nav>
+    <div class="dropdown" id="dropdown">
+      <span id="select-label" class="select-label">Trier par</span>
+      <button type="button" id="current-option" class="current-option" data-value="popularity">Popularité</button>
+      <div id="select" class="select" role="listbox" aria-haspopup="listbox" aria-expanded="false" aria-hidden="true" tabindex="0">
+        <button class="option" type="button" role="option" data-value="popularity" id="listbox-popularity" aria-label="Triez par popularité" aria-selected="true" tabindex="0">Popularité</button>
+        <button class="option" type="button" role="option" data-value="date" id="listbox-date" aria-label="Triez par date"  aria-selected="false" tabindex="0">Date</button>
+        <button class="option" type="button" role="option" data-value="title" id="listbox-title" aria-label="Triez par titre"  aria-selected="false" tabindex="0">Titre</button>
+      </div>
     </div>
 
     <!--=============== PHOTOGRAPHER-HEADER ===============-->
@@ -42,17 +51,17 @@
 
   <!--=============== MODAL-GALERY ===============-->
   <div id="modal-galery" class="modal modal-galery" tabindex="0" role="dialog" aria-hidden="true" aria-label="image closeup view" >
-      <a href="#previou-image" class="modal-galery__arrow left" aria-label="previous image" title="previous image" tabindex="0">&lt;</a>
+      <button class="modal-galery__arrow left" type="button" aria-label="previous image" title="previous image" tabindex="0">&lt;</button>
       <figure class="modal-galery__figure"></figure>
-      <a href="#next-image" class="modal-galery__arrow right" aria-label="next image" title="next image" tabindex="0">&gt;</a>
-      <button class="modal-galery__close-btn" tabindex="0" aria-label="close dialog" >✖</button>
+      <button class="modal-galery__arrow right" type="button" aria-label="next image" title="next image" tabindex="0">></button>
+      <button class="modal-galery__close-btn" type="button"  aria-label="close dialog" title="close dialog" tabindex="0">✖</button>
   </div>
   <!--=============== MODAL-CONTACT ===============-->
-  <div id="contact-modal" class="modal contact-modal" tabindex="-1" role="dialog" aria-hidden="true" aria-label="image closeup view" >
+  <div id="contact-modal" class="modal contact-modal" role="dialog" aria-modal="true" aria-hidden="true" aria-label="Formulaire de contact" aria-describedby="contactTitle" tabindex="-1"> 
     <div class="contact-modal__content">
       <h2 class="contact-modal__title" tabindex="0"></h2>
-      <button class="contact-modal__close-btn" id="close-modal" tabindex="0" aria-label="close dialog" >✖</button>
-      <form action="" class="form" method="post" tabindex="-1">
+      <button type="button" class="contact-modal__close-btn" id="close-modal" tabindex="0" aria-label="close dialog" >✖</button>
+      <form  class="form" method="post" tabindex="-1">
         <div class="form-group">
           <label for="firstname">Prénom</label>
           <input type="text" name="firstname" id="firstname" tabindex="0">
@@ -73,37 +82,28 @@
       </form>
     </div>
   </div>
-
+  <div class="likes" role="note" aria-label="Affichage du nombre de likes" aria-hidden="true">
+    <p>
+      <strong id="likes-count"></strong>
+      <span class="likes-count"></span>
+    </p>
+    <p id="photographerPrice"></p>
+  </div>
   <!--=============== FOOTER ===============-->
   <footer>
     <address>
-      <a href="mailto:master.code.develop@gmail.com" title="contact-author">Contacter le développeur</a>
+      <a href="mailto:master.code.develop@gmail.com" title="contact-author" target="_self">Contacter le développeur</a>
     </address>
   </footer>
 
   <!--=============== TEMPLATES ===============-->
-
-  <!------- photographer-header ------->
-  <template id="photographer-header-template">
-    <section class="photographer-header">
-      <div class="photographer-header__profile">
-        <h1 class="photographer-header__profile-name" tabindex="0"></h1>
-        <div class="photographer-header__profile-details">
-          <span class="photographer-header__profile-details-location" tabindex="0"></span>
-          <span class="photographer-header__profile-details-tagline" tabindex="0"></span>
-        </div>
-      </div>
-      <button class="btn" id="contact-btn" aria-labelledby="contact-me">Contactez-moi</button>
-      <img class="photographer-header__picture">
-    </section>
-  </template>
   <!------- galery ------->
   <template id="galery-template">
     <article class="card" >
       <div class="card-header"></div>
       <div class="card-details">
         <h2 class="card-details__title" tabindex="0"></h2>
-        <span class="card-details__likes" tabindex="0"></span>
+        <button type="button" tabindex="0" class="card-details__likes" aria-label="Ajouter à la liste des favoris"></button>
       </div>
     </article>
   </template>

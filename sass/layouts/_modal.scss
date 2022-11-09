@@ -7,7 +7,7 @@
     position: fixed;
     top: 0;
     left: 0;
-    z-index: 1;
+    z-index: 100;
     background-color: $clr-white;
     width: 100vw;
     height: 100vh;
@@ -18,15 +18,21 @@
 }
 /*=== modal-galery ===*/
 .modal-galery {
-    &__arrow {
+    button {
         display: flex;
         justify-content: center;
         align-items: center;
+        border-radius: 50%;
+    }
+    &__arrow {
+        width: resSize(50);
+        height: resSize(50);
         font-size: resSize(78);
-        width: resSize(30);
-        height: resSize(48);
+        line-height: resSize(42);
         font-weight: 700;
         color: $clr-primary;
+        background-color: transparent;
+        border: 0;
         cursor: pointer; 
         padding-inline: resSize(35);
     }
@@ -57,15 +63,15 @@
         background: transparent;
         border: 0;
         color: $clr-primary;
-        width:  resSize(42);;
-        height:  resSize(42);;
+        width:  resSize(70);;
+        height:  resSize(70);;
         font-size:  resSize(55);;
         line-height: resSize(42);
         cursor: pointer;
     }
     img, video {
         transition: box-shadow .5s;  
-        padding: resWidth(10px);
+        padding: resWidth(10);
         &:hover {
             box-shadow: rgba($clr-primary, 0.4) 0px 0px 0px 3px, rgba($clr-primary, 0.65) 0px 6px 8px -2px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
         }

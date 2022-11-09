@@ -54,3 +54,18 @@ export async function getGalery(photographerId) {
     }
     return sessionGalery;
 }
+/**
+ * Affiche le nombre total de likes de tous les articles
+ * @param {number} photographerId 
+ */
+export async function getLikes(photographerId) {
+    const likesCount = document.getElementById('likes-count'),
+    data = JSON.parse(sessionStorage.getItem(photographerId)),
+    dataLikes = JSON.parse(sessionStorage.getItem(photographerId+'-likes'));
+
+    let totalLikes = 0;
+    data.filter(({likes}) => totalLikes += likes);
+    if(dataLikes) dataLikes.filter(() => totalLikes += 1);
+    
+    likesCount.textContent = totalLikes;
+}

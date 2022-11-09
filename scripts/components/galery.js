@@ -1,7 +1,7 @@
 /**########################### IMPORT ###########################**/
-import { getPhotographerId, getCloneTemplate, getGalery } from '../functions/get.js';
-import { show } from './galeryModal.js';
+import { getPhotographerId, getCloneTemplate, getGalery, getLikes } from '../functions/get.js';
 import { addLike } from './like.js';
+import { MediaFactory } from '../factories/Media.js'
 /**########################### CONST ###########################**/
 const photographerId = getPhotographerId(),
 section = document.getElementById('galery-section');
@@ -9,24 +9,12 @@ section = document.getElementById('galery-section');
 /**########################### FUNCTION ###########################**/
 function setArticle(data, sortedGalery) {
     /*========== CONST  ==========*/
-    const { id, title, image, video,  photographerId, likes } = data,
+    const { id, title, photographerId, likes } = data,
     article = getCloneTemplate('galery-template'),
-    header = article.querySelector('.card-header'),
+    header = article.querySelector('.card-header');
+    const source = new MediaFactory(data, sortedGalery);
     
-    /*========== SOURCE MEDIA (IMAGE & VIDEO) ==========*/
-    source = (image)
-        ?document.createElement('img')
-        :document.createElement('video');
-    source.className = 'card-source';
-    source.src = `../assets/photos/${photographerId}/${image?image:video}`;
-    source.setAttribute('alt', title + ', closeup view');
-    source.tabIndex = 0;
-    source.addEventListener('click', () => show(id, sortedGalery));
-    source.addEventListener('keydown', e => {
-        if(e.key === 'Enter') show(id, sortedGalery);
-    })
-    if (video) header.classList.add('video');
-    header.appendChild(source);
+    header.appendChild(source.elementThumbnail); // add source
     
     /*========== TITLE ==========*/
     const h2 = article.querySelector('h2');
@@ -65,4 +53,5 @@ function setArticle(data, sortedGalery) {
     
     section.innerHTML = '';// reset the section
     for (const data of sortedGalery) setArticle(data, sortedGalery);
+    getLikes(photographerId);
 }

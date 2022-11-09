@@ -9,6 +9,7 @@ body {
     margin: 0;
     background-color: $clr-white;
     width: 100vw;
+    overflow-x: hidden;
     &.no-scroll, &.no-scroll main {
         overflow: hidden;
     }

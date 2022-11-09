@@ -1,6 +1,7 @@
 /**########################### CONST ###########################**/
 /**######### DOM ELEMENTS #########**/
 const body = document.querySelector('body'),
+main = document.querySelector('main'),
 modal = document.getElementById('contact-modal'),
 close = modal.querySelector('#close-modal'),
 title = modal.querySelector('h2'),
@@ -8,7 +9,8 @@ form = modal.querySelector('form'),
 firstName = document.getElementById('firstname'),
 lastName = document.getElementById('lastname'),
 email = document.getElementById('email'),
-message = document.getElementById('message');
+message = document.getElementById('message'),
+submit = modal.querySelector('button[type="submit"]');
 
 /**######### REGEX #########**/
 const RegName = /^[a-zA-Z\- ]{2,20}$/i,
@@ -41,12 +43,26 @@ const dataTest = {
 }
 /**######### FUNCTIONS #########**/
 /**
+ * Open the modal
+ */
+function openModal() {
+    body.classList.add("no-scroll");
+    main.ariaHidden = true;
+    modal.classList.add("is-open");
+    modal.ariaHidden = false;
+    modal.focus();
+
+    window.addEventListener('keydown', handleKeydown, false);// keydown control
+}
+/**
  * close the modal
  */
 function closeModal() {
-    body.classList.remove("scroll-hidden");
+    body.classList.remove("no-scroll");
+    main.ariaHidden = false;
     modal.classList.remove("is-open");
     modal.ariaHidden = true;
+    window.removeEventListener('keydown', handleKeydown, false);
 }
 /**
  * Display the error message
@@ -108,14 +124,32 @@ function formSubmit(e) {
 
 }
 /**
+ * Controls keyboard navigation of Shift and Tab in the contact modal .
+ * @param {event} e event handling.
+ */
+function handleKeydown (e) {
+    const keyCode = e.keyCode ? e.keyCode : e.which,
+    activeElement = document.activeElement;
+
+    if( (!e.shiftKey && keyCode === 9) && activeElement == submit) {
+        modal.focus();
+    } else if (e.shiftKey && keyCode === 9 && activeElement == close) {
+        submit.focus();
+    }
+}
+
+/**########################### EXPORTS ###########################**/
+/**
  * Update and control the contact modal
  * @param {Object} photographer 
  */
 export function contactModal(photographer) {
-    const { name } = photographer;
-    title.innerHTML = 'Contactez-moi <br>'+name;
+    const open = document.getElementById('openContactModal');
+
+    title.innerHTML = 'Contactez-moi <br>'+photographer.name; // update title
 
     /**############### EventListener ###############**/
+    open.addEventListener('click', openModal);
     close.addEventListener('click', closeModal);
     form.addEventListener('submit', formSubmit);
     firstName.addEventListener("focusout", verifyFirstName);// verify First Name

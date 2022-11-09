@@ -1,9 +1,8 @@
 import { updateGalery } from "./galery.js";
 
 /**########################### CONST ###########################**/
-const label = document.getElementById('select-label'),
+const dropdown = document.getElementById('dropdown'),
 select = document.getElementById('select'),
-optgroup = document.getElementById('optgroup'),
 currentOption = document.getElementById('current-option');
 
 /**########################### FUNCTIONS ###########################**/
@@ -14,11 +13,10 @@ currentOption = document.getElementById('current-option');
 function openSelect() {
     select.ariaExpanded = true;
     select.ariaHidden = false;
-    optgroup.style.display = "block";
+    select.focus();
     currentOption.style.display = "none";
-    optgroup.firstElementChild.focus();
-    
-    window.addEventListener('keydown', handleKeydown, false);
+    dropdown.classList.add('is-open');    
+    window.addEventListener('keydown', handleKeydown, true);
 }
 
 /**
@@ -27,9 +25,9 @@ function openSelect() {
 function closeSelect() {
     select.ariaExpanded = false;
     select.ariaHidden = true;
-    optgroup.style.display = "none";
+    dropdown.classList.remove('is-open');
     currentOption.style.display = "block";
-    window.removeEventListener('keydown', handleKeydown, false);
+    window.removeEventListener('keydown', handleKeydown, true);
 }
 
 /**
@@ -40,8 +38,13 @@ function handleKeydown(e) {
     e.preventDefault();
     let selectedOption = document.activeElement;
     selectedOption.ariaSelected = true;
-
-    if (e.key === 'ArrowUp' || e.key ==='ArrowDown' || e.key === 'Home' || e.key === 'End') {
+    
+    if (e.key === 'Escape') closeSelect();
+    else if (select == selectedOption &&  e.key === 'Enter') {
+        const firstButton = select.querySelector('button');
+        firstButton.focus();
+    }
+    else if (e.key === 'ArrowUp' || e.key ==='ArrowDown' || e.key === 'Home' || e.key === 'End') {
         selectedOption.ariaSelected = false;
         
         if (e.key === 'ArrowUp') {
@@ -61,7 +64,6 @@ function handleKeydown(e) {
         selectedOption.ariaSelected = true;
         selectedOption.focus();
     }
-    else if (e.key === 'Escape') closeSelect();
     else if (e.key === 'Enter') handleOption(e);
     
 }
@@ -83,11 +85,10 @@ function handleOption(e) {
     e.stopPropagation();
 
     if (value != currentOption.getAttribute("data-value")) {
-        optgroup.insertBefore(option, optgroup.firstElementChild);
+        select.insertBefore(option, select.firstElementChild);
         updateCurrentOption(option);
         updateGalery(value);
     }
-
     closeSelect();
 }
 
@@ -96,20 +97,16 @@ function handleOption(e) {
  * Updates the behavior of the dropdown
  */
 export function updateSelect() {
-    label.addEventListener('click', () => select.focus());
-    select.addEventListener('click', openSelect);
+    //label.addEventListener('click', () => select.focus());
+    currentOption.addEventListener('click', openSelect);
     select.addEventListener('keydown', e => {
         if (e.key === 'Enter' && document.activeElement === select) {
             e.stopPropagation();
             openSelect();
         }
     }, true);
-    select.addEventListener('focusout', e  => {
-        if (!select.contains(e.relatedTarget)) {
-            closeSelect();
-        }
-    });
-    for (const option of optgroup.children) {
+    
+    for (const option of select.children) {
         option.addEventListener('click', handleOption)
     }
 }

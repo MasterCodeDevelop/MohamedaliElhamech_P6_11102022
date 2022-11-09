@@ -61,19 +61,22 @@
             width: 80%;
         }
         &__likes {
+            font-size: resSize(20);
             position: relative;
             display: flex;
             justify-content: flex-end;
             align-items: center;
             width: 20%;
             transition: all .7s;
+            background-color: transparent;
+            border: 0;
             cursor: pointer;
             padding-right: resWidth(26);
             &:before, &:after { 
                 position: absolute; 
                 content: ""; 
                 right: 0; 
-                top: 20%; 
+                top: 0; 
                 width: resWidth(12); 
                 height:resWidth(19.2); 
                 background: $clr-primary; 

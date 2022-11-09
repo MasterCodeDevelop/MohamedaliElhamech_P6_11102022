@@ -1,3 +1,5 @@
+import { getLikes } from "../functions/get.js";
+
 /**
  * Add all elements of the like
  * @param {any} props 
@@ -5,7 +7,7 @@
 export function addLike(props) {
     //################## CONST ##################//
     const { article, id, photographerId, likes } = props,
-    like = article.querySelector('span');
+    like = article.querySelector('button');
 
     //################## FUNCTIONS ##################//
 
@@ -47,8 +49,8 @@ export function addLike(props) {
             like.textContent = likes;
             like.classList.remove('is-liked');
         }
-        
         setSession(photographerLikes);
+        getLikes(photographerId);
     }
     /**
      * Initial the like in relation to the last sessionStorage
@@ -69,19 +71,8 @@ export function addLike(props) {
         }
     }
 
-    /**
-     * Controls keyboard if Enter
-     * @param {*} e event handling.
-     */
-    function handleKeydown(e) {
-        if (e.key === 'Enter') {
-            e.stopPropagation();
-            onChangeLike()
-        }
-    }
        
     //################## SCRIPT/EXECUTE ##################//
     initialLike(like)
     like.addEventListener('click', onChangeLike);
-    like.addEventListener('keydown', handleKeydown);
 }

@@ -1,30 +1,26 @@
+import { MediaFactory } from "../factories/Media.js";
+
 /**########################### CONST ###########################**/
 const body = document.querySelector('body'),
 photographer = document.getElementById('photographer'),
 modal = document.getElementById('modal-galery'),
-arrows = modal.querySelectorAll('a'),
+left = modal.querySelector('.left'),
+right = modal.querySelector('.right'),
 figure =  modal.querySelector('figure'),
 figcaption = document.createElement('figcaption'),
-btn = modal.querySelector('button');
+close = modal.querySelector('.modal-galery__close-btn');
 
 /**########################### VARIABLES ###########################**/
 var index, data;
 
 /**########################### FUNCTIONS ###########################**/
 function updateGalery(data) {
-    const { photographerId, image, video, title } = data;
+    const { title } = data;
     figure.innerHTML='';
 
     /*========== SOURCE MEDIA (IMAGE & VIDEO) ==========*/
-    const source = (image)
-        ?document.createElement('img')
-        :document.createElement('video');
-    source.src = `../assets/photos/${photographerId}/${image?image:video}`;
-    source.setAttribute('alt', title);
-    source.ariaLabel="image closeup view"
-    source.tabIndex = 0;
-    if(video)source.controls = true;
-    figure.appendChild(source);
+    const source = new MediaFactory(data);
+    figure.appendChild(source.element);
 
     /*========== FIGCAPTION ==========*/
     figcaption.textContent = title;
@@ -33,8 +29,8 @@ function updateGalery(data) {
     figure.appendChild(figcaption);
 
     /*========== ARROWS ==========*/
-    arrows[0].addEventListener('click', previousElement);// left-arrow
-    arrows[1].addEventListener('click', nextElement);// right-arrow
+    left.addEventListener('click', previousElement);// left-arrow
+    right.addEventListener('click', nextElement);// right-arrow
 
     /*========== ARRIA ==========*/
     photographer.ariaHidden = true;
@@ -75,6 +71,7 @@ function closeModal() {
     /*========== REMOVE ==========*/
     body.classList.remove('no-scroll');
     photographer.classList.remove('no-scroll');
+    photographer.ariaHidden = false;
     modal.classList.remove('is-open');
     window.removeEventListener('keydown', handleKeydown, false);
 }
@@ -83,28 +80,29 @@ function closeModal() {
  * @param {event} e event handling.
  */
 function handleKeydown (e) {
-    const keyCode = e.keyCode ? e.keyCode : e.which,
+    const key = e.key,
     activeElement = document.activeElement,
     video = modal.querySelector('video');
-    if(keyCode === 37) previousElement();//ArrowLeft
-    else if(keyCode === 39) nextElement();//ArrowRight
-    else if(keyCode === 27) closeModal(); // Escape
-    else if (keyCode === 32) {
-        if(video && activeElement != video) (video.paused)   
+
+    if(key === 'ArrowLeft') previousElement();
+    else if(key === 'ArrowRight') nextElement();
+    else if(key === 'Escape') closeModal();
+    else if (key === ' ' && video && activeElement != video) {
+        (video.paused)   
         ?   video.play()
         :   video.pause();
-    }/* Space */
-    else if ((e.shiftKey && keyCode === 9) && activeElement == arrows[0]) {
-        btn.focus();
     }
-    else if(( !e.shiftKey && keyCode === 9 && activeElement == btn ) || (activeElement.parentElement != modal && activeElement.parentElement.parentElement != modal) ) {
+    else if ((e.shiftKey && key === 'Tab') && activeElement == left) {
+        close.focus();
+    }
+    else if(( !e.shiftKey && key === 'Tab' && activeElement == close ) || (activeElement.parentElement != modal && activeElement.parentElement.parentElement != modal) ) {
         modal.focus();
     }
 }
 
 /**########################### EVENT LISTENER ###########################**/
-btn.addEventListener('click', closeModal)
-btn.addEventListener('keydown', e => {
+close.addEventListener('click', closeModal)
+close.addEventListener('keydown', e => {
     if(e.key === 'Enter') closeModal();
 })
 

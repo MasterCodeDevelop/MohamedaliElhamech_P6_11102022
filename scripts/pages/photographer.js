@@ -17,6 +17,8 @@ async function init() {
         await updateGalery();
         updateSelect();
         contactModal(photographer);
+    } else {
+        window.location.href = '../index.html';
     }
 }
 init();
