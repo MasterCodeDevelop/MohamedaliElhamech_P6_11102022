@@ -113,11 +113,26 @@ verifyMessage = () => verify(message, dataTest.message);
  * If submit form controll all input
  * @param {Event} e 
  */
-function formSubmit(e) {
+function formSubmit(e, photographer) {
     e.preventDefault();
 
+    // master.code.develop@gmail.com
+
     if(verifyFirstName() && verifyLastName() && verifyEmail() && verifyMessage()) {
-        alert('votre message a été bien envoyé');
+        alert('votre message a été bien envoyé, vous pouuvez le voir dans la console');
+        const style = `
+            color: #2196f3;
+            font-style: italic;
+            font-weight: bold;
+            font-size: 14px;
+        `;
+        console.log(`
+            Bonjour %c${firstName.value} ${lastName.value},\n
+            %c Votre message a bien été envoyé à ${photographer} .\n
+            Voici votre message :\n
+            " %c${message.value}  %c " \n
+            Une copie vous sera envoyée à cette adresse email: %c${email.value}\n
+            `,style, 'color: #FFF', style, 'color: #FFF', style);
         form.reset();
         closeModal();
     }
@@ -151,7 +166,7 @@ export function contactModal(photographer) {
     /**############### EventListener ###############**/
     open.addEventListener('click', openModal);
     close.addEventListener('click', closeModal);
-    form.addEventListener('submit', formSubmit);
+    form.addEventListener('submit', (e) => formSubmit(e, photographer.name));
     firstName.addEventListener("focusout", verifyFirstName);// verify First Name
     lastName.addEventListener("focusout", verifyLastName); // Verify last Name
     email.addEventListener("focusout", verifyEmail);// Verify Email

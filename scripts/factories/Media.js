@@ -23,7 +23,7 @@ class MediaImage{
     this.$e.addEventListener('click', () => show(this.id, sortedGalery));
     this.$e.addEventListener('keydown', e => {
         if(e.key === 'Enter') show(this.id, sortedGalery);
-    })
+    });
     this.$e.setAttribute('data-open', 'lightbox');
 
   }
@@ -55,11 +55,12 @@ class MediaVideo {
     this.$e = document.createElement('img');
     this.$e.setAttribute('tabindex', '0');
     this.$e.classList.add('card-source');
+    this.$e.setAttribute('alt', this.title);
     this.$e.setAttribute('data-open', 'lightbox');
     this.$e.addEventListener('click', () => show(this.id, this.sortedGalery));
     this.$e.addEventListener('keydown', e => {
       if(e.key === 'Enter') show(this.id, this.sortedGalery);
-    })
+    });
     this.$e.setAttribute('src', this.thumbnail);
     return this.$e;
   }
@@ -68,6 +69,7 @@ class MediaVideo {
     // Media Element
     this.$e = document.createElement('video');
     this.$e.setAttribute('tabindex', '0');
+    this.$e.setAttribute('alt', this.title);
     this.$e.classList.add('card-source');
     this.$e.setAttribute('data-open', 'lightbox');
     this.$e.setAttribute('src', this.video);
