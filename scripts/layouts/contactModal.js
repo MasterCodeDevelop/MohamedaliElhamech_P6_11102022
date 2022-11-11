@@ -116,8 +116,6 @@ verifyMessage = () => verify(message, dataTest.message);
 function formSubmit(e, photographer) {
     e.preventDefault();
 
-    // master.code.develop@gmail.com
-
     if(verifyFirstName() && verifyLastName() && verifyEmail() && verifyMessage()) {
         alert('votre message a été bien envoyé, vous pouuvez le voir dans la console');
         const style = `
